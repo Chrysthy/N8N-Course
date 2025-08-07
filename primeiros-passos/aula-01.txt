@@ -1,0 +1,8 @@
+* O N8N é uma ferramenta de automação de fluxos de trabalho de código aberto, que permite a criação de integrações entre diferentes aplicações e serviços, 
+sem a nesscidade de escrever muito código.
+
+? One Person Business 
+É um modelo de negócio em torno de uma só pessoa, onde você cria um negócio online do seu jeito, sem complexidade, enxuto e lucrativo
+
+?Eugência
+É um termo informal usado no mercado para designar uma agência (ou negócio) dirigida por uma única pessoa.
