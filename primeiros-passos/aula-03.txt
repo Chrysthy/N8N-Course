@@ -1,0 +1,13 @@
+Instalação do N8N em Diferentes Ambientes
+
+Existem 3 maneiras de acessar o N8N
+
+* Local setup
+ - Desktop version - não recomendado em instalar
+ - Node plataform
+ - Docker install
+
+* A própria plataforma do N8N
+
+* Self Host
+ - Utilizando plataforma em nuvem, como: Hosting, HostGator, Railway
