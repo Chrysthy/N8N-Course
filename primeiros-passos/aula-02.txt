@@ -1,0 +1,7 @@
+* Plataforma N8N
+https://n8n.io/
+
+* Ferramenta altamente visual.
+* Facilidade na criação de automações e conexão com outras ferramentas.
+
+* Nodes (nós) são blocos de contrução de um fluxo de trabalho.
