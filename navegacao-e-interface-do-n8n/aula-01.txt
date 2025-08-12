@@ -1,0 +1,22 @@
+Página principal = Overview com seus workflows, credentials e executions.
+
+
+* Add Project
+
+- Pode criar outros usuários, separação por “funcionários”. Cada um poderia assinar uma única conta, mas ter um usuário diferente.
+
+- Para poder compartilhar (tanto workflow e credentials) com outros usuários na mesma conta ou ter feito download (copiou) e adicionou no painel.
+
+- Aba de projetos só liberada para o plano pago. 
+
+- Dentro da mesma conta, pode ter alguns usuários que podem participar do projeto e outros não.
+
+- Pode criar pastas e inclusive adicionar pessoas para o projeto. 
+
+- Tudo o que você fizer dentro dessa pasta, não vai para outros locais, nem mesmo pro seu personal. 
+A mesma coisa com o personal, se você fizer algo lá, fica lá.
+
+- Se estiver trabalhando com o N8N pago, é uma boa prática separar projetos em pastas e dentro dessas pastas, subpastas se for o caso.
+
+
+
