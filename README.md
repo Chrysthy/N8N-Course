@@ -48,6 +48,14 @@
 
 <br>
 
+## 💻 Project
+
+- Build a workflow 
+- Create a webhook to update Google Sheets
+- Develop a simple automated flow
+
+<br>
+
 ## 📜 License
 
 * This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
