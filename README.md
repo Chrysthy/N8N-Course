@@ -34,6 +34,20 @@
 
 <br>
 
+## ✨ Features
+
+- No-code/low-code workflow automation
+- API integrations (Google Sheets, Slack, Gmail, etc.)
+- Trigger-based workflows (webhooks, cron)
+- Data manipulation with JavaScript functions
+- Conditional logic and branching
+- Scheduling and monitoring workflows
+- Secure credential management
+- Multi-user support (advanced)
+- Custom nodes
+
+<br>
+
 ## 📜 License
 
 * This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
