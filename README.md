@@ -24,7 +24,13 @@
 
 ## 🛠 Technologies
 
-- N8N
+- n8n (workflow automation tool)
+- Node.js
+- Docker (optional)
+- REST APIs
+- Webhooks
+- JavaScript (for custom functions)
+- Git/GitHub
 
 <br>
 
