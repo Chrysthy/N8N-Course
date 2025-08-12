@@ -1,4 +1,4 @@
-<h1 align="center">N8N Course</h1>
+<h1 align="center">N8N Course <img align="center" alt="Chrysthy-N8N" height="60" width="60" src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/n8n-color.png"></h1>
 
 <p align="center">  
   <a href="#-screenshots">Screenshots</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
