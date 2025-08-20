@@ -1,0 +1,9 @@
+Adicionando e Conectando Nós no N8N
+
+* Workflows = fluxos de trabalho.
+
+* São como uma caixinha de legos e cada peça é um nó (Node).
+
+* Cada Node segue um step.
+
+* Nós podemos ter tiggers, actions e events
