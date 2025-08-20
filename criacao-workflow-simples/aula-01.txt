@@ -7,3 +7,42 @@ Adicionando e Conectando Nós no N8N
 * Cada Node segue um step.
 
 * Nós podemos ter tiggers, actions e events
+
+
+? Estrutura do fluxo
+
+?Primeiro nó: "When chat message received"
+
+-Esse nó é um gatilho (trigger) que dispara o fluxo sempre que uma mensagem de chat é recebida.
+
+-Pode ser usado em contextos de chatbots ou sistemas de atendimento automatizado.
+
+-O ícone de raio sugere que é um nó de disparo instantâneo, acionado pelo evento externo.
+
+
+?Segundo nó: "Edit Fields"
+
+Este nó aparece conectado ao anterior, indicando que, após receber a mensagem, o fluxo passa para ele.
+
+“Edit Fields” normalmente permite manipular os dados da mensagem recebida:
+
+Renomear campos
+
+Criar campos adicionais
+
+Filtrar informações irrelevantes
+
+Preparar os dados para o próximo passo do fluxo
+
+Está configurado como “manual”, o que sugere que os campos estão sendo editados de forma específica pelo usuário.
+
+
+?Observações detalhadas
+
+O fluxo é linear, passando de um evento de entrada para um processamento intermediário.
+
+A conexão entre os nós é clara: o fluxo é event-driven (dirigido por eventos) — uma mensagem de chat dispara a execução.
+
+Pode ser parte de um Projeto Hands-On para mostrar como conectar nós e construir automações eficientes: receber dados, processá-los, e depois enviar ou usar em outros processos.
+
+O fluxo é minimalista, mas mostra a essência de “Conectando Nós”: cada nó tem uma função específica, e a lógica de automação é criada através dessas conexões visuais.
