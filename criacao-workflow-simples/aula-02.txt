@@ -1,0 +1,13 @@
+Configurando Parâmetros dos Nós no N8N
+
+- input: Valores de entrada, tudo que vai ser feito na hora que o nó vai iniciar.
+
+- process: O que o nó vai executar na sequencia, um processo.
+
+- output: O resulta final
+
+- O input pode ou não ter um parâmetro.
+
+- Pode ter parâmetros que são exclusivos do process.
+
+- O final da cadeia do primeiro nó, o output do primeiro nó vai passar o resultado pro input do próximo nó em forma de parâmetro.
