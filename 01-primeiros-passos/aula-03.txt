@@ -1,0 +1,25 @@
+Instalação do N8N em Diferentes Ambientes
+
+Existem 3 maneiras de acessar o N8N
+
+* Local setup
+ - Desktop version - não recomendado em instalar
+ - Node plataform
+ - Docker install
+
+* A própria plataforma do N8N
+
+* Self Host
+ - Utilizando plataforma em nuvem, como: Hosting, HostGator, Railway
+
+
+### Instalação do N8N com NodeJS
+
+- Baixar o nodejs da plataforma: nodejs.org
+    - versão LTS - versão atual
+    - node -v
+    - npm -v
+- npm install n8n -g (para instalar de maneira global, para todos os usuários)
+- Depois de instalado escreva:
+    - n8n start
+    - pressione a tecla "o" para abrir no navegador

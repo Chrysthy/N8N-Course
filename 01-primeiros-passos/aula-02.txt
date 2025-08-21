@@ -1,0 +1,17 @@
+* Plataforma N8N
+https://n8n.io/
+
+* Ferramenta altamente visual.
+* Facilidade na criação de automações e conexão com outras ferramentas.
+
+* Nodes (nós) são blocos de contrução de um fluxo de trabalho.
+
+
+* Existem 3 tipos de nós:
+
+- Trigger = gatilho
+- Edit event = edita comportamento
+- Scheduled event = nó agendado
+
+* Flow line
+Fluxo de sequência de ações, sequência lógica, linha de ações
