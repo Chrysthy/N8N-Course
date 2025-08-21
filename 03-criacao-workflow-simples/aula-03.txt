@@ -1,0 +1,7 @@
+Organizando e Documentando Workflows para Manutenção Eficiente
+
+? Tem uma convenção que a comunidade do N8N acabou encontrando para melhorar a documentação das automações e chamou de region (Região):
+
+* Ao invés de para fazer um comentário, deixa com um nome de um conjunto de etapas.
+
+* Usar stickers para agrupar visualmente vários grupos de nós Um conjunto de etapas formam uma ação maior.
