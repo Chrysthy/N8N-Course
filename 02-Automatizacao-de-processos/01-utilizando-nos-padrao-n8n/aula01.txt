@@ -1,0 +1,11 @@
+* Principais Nodes do N8N
+
+- Nós
+- Padrão
+- Nodes Standart
+
+* Conceitos e fundamentos que envolvem os nós padrão (nodes Standart)
+
+- Node de início: Trigger (gatilho)
+- Node de processamento: Data Processing
+- Node de fim: Action (saída)
