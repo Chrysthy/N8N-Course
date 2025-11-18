@@ -9,3 +9,10 @@
 - Node de início: Trigger (gatilho)
 - Node de processamento: Data Processing
 - Node de fim: Action (saída)
+
+* Métodos de Requisição mais usados
+
+- Get
+- Post
+
+- Node de processamento quando está no get e node finalização quando está no post
