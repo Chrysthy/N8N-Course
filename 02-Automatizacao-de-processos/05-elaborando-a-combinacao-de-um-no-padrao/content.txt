@@ -1,0 +1,46 @@
+Elaborando a combinação de um nó padrão
+
+- O nó Switch é fundamental quando a sua automação deixa de ser uma simples "reta" e passa a ter várias possibilidades.
+- Pense no Switch como um carteiro separando cartas. Ele olha para o destinatário (o dado que entra) e joga na caixa correta (a saída).
+
+
+* Passo-a-Passo da Configuração
+
+1. Mode (Modo)
+
+Mude para **Rules** (Regras).
+- *Por que?* O modo "Expression" é para programadores avançados. O modo "Rules" é visual e mais fácil: "Se X for igual a Y, faça isso".
+
+
+2. Data Type (Tipo de Dado)
+
+Escolha **String** (Texto).
+- *Por que?* Porque vamos ler a palavra "USD" ou "EUR", que são textos.
+
+
+3. Value 1 (O que vamos analisar?)
+
+Aqui você coloca a **Expression** (a variável dinâmica).
+- Clique na engrenagem ou arraste a variável "moeda" do input anterior.
+- Deve ficar algo como: `{{ $json.moeda }}`
+
+
+4. Routing Rules (As Regras de Roteamento)
+
+Aqui criamos as "portas de saída".
+- **Rule 0 (Rota 1):**
+    - **Operation:** Equal (Igual a)
+    - **Value:** `USD`
+    - *Resultado:* Isso cria a **Output 0**. Tudo que for dólar sai por aqui.
+
+- **Rule 1 (Rota 2):**
+    - *Clique em "Add Routing Rule"*
+    - **Operation:** Equal (Igual a)
+    - **Value:** `EUR`
+    - *Resultado:* Isso cria a **Output 1**. Tudo que for euro sai por aqui.
+
+
+5. Fallback (A Rota de Segurança)
+
+Lá no final das configurações, ative a opção **"Fallback"**.
+- *O que é:* É a saída de "Lixo" ou "Outros". Se chegar uma moeda "GBP" (Libra) e você não criou regra para ela, ela sairá por aqui para não dar erro e parar sua automação.
