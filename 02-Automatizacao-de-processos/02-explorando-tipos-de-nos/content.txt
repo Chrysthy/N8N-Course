@@ -1,0 +1,52 @@
+Conceitos e fundamentos que envolvem os nós padrão (Nodes Standart)
+
+- Node de Início: trigger (gatilho)
+- Node de processamento: data processing
+- Node de fim: Action (saída)
+
+É a arquitetrura básica de qualquer workflow do N8N.
+
+
+No n8n, os métodos de requisição disponíveis no nó HTTP Request são os mesmos usados em APIs REST: GET, POST, PUT, PATCH, DELETE, HEAD e OPTIONS. 
+Cada um serve para uma finalidade específica dentro da automação:
+
+- GET → Usado para consultar dados de uma API sem alterar nada. Exemplo: buscar informações de um usuário.
+
+- POST → Serve para enviar dados e criar novos registros. Exemplo: cadastrar um cliente em um sistema.
+
+- PUT → Atualiza um recurso inteiro já existente. Exemplo: substituir todos os dados de um produto.
+
+- PATCH → Atualiza parcialmente um recurso. Exemplo: alterar apenas o e-mail de um usuário.
+
+- DELETE → Remove um recurso. Exemplo: excluir um registro de banco de dados.
+
+- HEAD → Retorna apenas os metadados da resposta (sem o corpo). Útil para verificar se um recurso existe.
+
+- OPTIONS → Usado para descobrir quais métodos e permissões estão disponíveis em um endpoint.
+
+
+Lembrando que p PATH é a URL do webhook;
+Importante: nunca use caracteres epeciais, espaços ou acentos. Prefira sempre usar o underline ou hifem.
+
+
+Exemplo:
+
+- No ReqBin, selecione o método POST (ou outro que seu fluxo no n8n esteja esperando).
+- Colocamos a URL do N8N no site 
+- Definição do corpo da requisição (Body). No painel de Body, insira os dados em formato JSON.
+    {
+        "nome": "Maria",
+        "email": "maria@exemplo.com",
+        "mensagem": "Olá, este é um teste!"
+    }
+
+- Envio da requisição. Clique em Send no ReqBin.
+- O ReqBin vai enviar os dados para o webhook configurado no n8n.
+- O nó Webhook do n8n recebe os dados.
+
+A partir daí, podemos encadear outros nós (por exemplo: salvar em banco de dados, enviar e-mail, chamar outra API).
+
+
+
+- HTTP Request, podemos dizer que é híbrido:
+    Ele pode ser Node de processamento quando está no get e node finalização quando está no post.
