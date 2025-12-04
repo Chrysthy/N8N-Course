@@ -1,0 +1,39 @@
+Tipos de nós padrão e suas características 
+
+- Webhook → recebe a requisição externa pedindo a cotação.
+- HTTP Request → chama a API de cotações (ex.: GET https://api.exchangerate.host/latest?base=USD&symbols=BRL).
+- Para múltiplas moedas, só colocar vírgula e colocar a próxima.
+
+
+🔧 Tipos de nós padrão relacionados a HTTP
+
+* Webhook
+
+Recebe dados externos via URL pública.
+Útil para quando a API envia notificações (ex.: callback de cotação).
+
+* HTTP Request
+
+Faz chamadas para qualquer API REST.
+Permite configurar método (GET, POST, PUT, DELETE etc.), headers, autenticação e body.
+É o nó principal para consumir uma API de cotações.
+
+* Function / Function Item
+
+Executa código JavaScript para manipular dados recebidos da API.
+Exemplo: converter valores, calcular variações percentuais de cotação.
+
+* Set/Edit field
+
+Cria ou altera campos de dados manualmente.
+Exemplo: definir a moeda base como “USD” antes de chamar a API.
+
+* IF / Switch
+
+Controla o fluxo com base em condições.
+Exemplo: se a cotação do dólar > 6, seguir para um alerta; senão, continuar o fluxo normal.
+
+* Respond to Webhook
+
+Retorna uma resposta para quem chamou o webhook.
+Exemplo: devolver a cotação solicitada em formato JSON.
