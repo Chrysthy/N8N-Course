@@ -1,0 +1,39 @@
+* Replace
+
+Essa é uma função essencial para nós brasileiros! 
+A maioria dos sistemas de programação usa o padrão americano (ponto para decimais: `5.99`), mas o Google Sheets e o Excel configurados em Português esperam a vírgula (`5,99`). 
+Se você enviar com ponto, a planilha pode achar que é texto ou data.
+
+O método .replace() serve exatamente para isso: substituir um pedaço de texto por outro.
+
+
+* O Pulo do Gato: Números vs. Texto
+
+O comando `.replace()` é uma ferramenta de Texto (String). Ele não funciona diretamente em Números.
+
+- Se o seu dólar é `5.30` (número roxo/verde no n8n), você não pode dar replace direto.
+- Primeiro, você precisa transformar o número em texto.
+
+
+* A Fórmula Mágica
+
+Na sua caixa de Expression no n8n, ao invés de colocar apenas a variável, você fará uma "corrente" de comandos:
+
+`{{ $json.dolar.toFixed(2).replace('.', ',') }}`
+
+
+* Explicação
+
+Vamos ler essa linha da esquerda para a direita, como o computador faz:
+
+1. `$json.dolar`:
+    - Pega o valor bruto que veio do nó anterior (ex: `5.3` ou `5.3215`).
+
+2. `.toFixed(2)`:
+    - O que faz: Arredonda o número para fixar apenas 2 casas decimais e, automaticamente, transforma em texto.
+    - Resultado: O número `5.3` vira o texto `"5.30"`.
+
+3. `.replace('.', ',')`:
+    - O que faz: Procura o primeiro ponto (`.`) que encontrar e troca por uma vírgula (`,`).
+    - Resultado Final: `"5,30"`
+
