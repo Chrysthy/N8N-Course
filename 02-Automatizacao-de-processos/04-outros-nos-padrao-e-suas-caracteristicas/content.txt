@@ -1,0 +1,44 @@
+Outros nós padrão e suas características
+
+* Edit Fields (antigo nó "Set") - O Organizador
+
+Este nó serve para criar, mudar ou limpar dados.
+Imagine que os dados chegam da API todos bagunçados ou com nomes feios. O Edit Fields é a mesa onde você arruma tudo antes de continuar.
+
+• O que ele faz: Escolhe apenas o que importa e dá nomes bonitos.
+• Exemplo prático:
+
+Você recebe um monte de dados da API, mas só quer o valor do Dólar.
+    - Entrada: { "id": 999, "time": "12:00", "valor_convertido_dolar_real": 5.32 }
+    - Ação no Edit Fields: Dizer "Crie uma variável preco e coloque o valor 5.32 nela".
+    - Saída: { "preco": 5.32 }
+
+
+
+* If - O Porteiro (Sim ou Não)
+
+O nó If serve para tomar decisões binárias (apenas duas opções). Ele divide o fluxo da sua automação em dois caminhos: True (Verdadeiro) e False (Falso).
+
+• Como funciona: Você cria uma condição (uma pergunta).
+• Exemplo prático:
+
+Você quer receber um aviso apenas se o Dólar estiver caro.
+    - Condição: "O valor do dólar é maior que 5.50?"
+    - Caminho True (Sim): Envia um email: "Não compre agora!".
+    - Caminho False (Não): Envia um email: "Opa, hora de comprar!"
+
+
+
+* Switch - A Triagem (Múltiplos Caminhos)
+
+O Switch é uma versão mais poderosa do If. Ele serve quando você tem mais de duas opções de saída. 
+Em vez de apenas "Sim/Não", ele direciona os dados para a porta correta baseada no valor.
+
+• Como funciona: Ele olha para um valor e pergunta: "O que está escrito aqui?" e envia para o caminho correspondente.
+• Exemplo prático:
+
+Você tem uma automação que recebe pagamentos em várias moedas e quer guardar em planilhas diferentes.
+    - Regra: Olhe o campo "moeda".
+    - Se for "USD": Vai para a saída 0 (Planilha Dólar).
+    - Se for "EUR": Vai para a saída 1 (Planilha Euro).
+    - Se for "BRL": Vai para a saída 2 (Planilha Real).
