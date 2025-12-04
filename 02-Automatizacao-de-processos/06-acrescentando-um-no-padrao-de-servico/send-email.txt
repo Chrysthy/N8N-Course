@@ -1,0 +1,49 @@
+* Send Email
+
+Fechando o ciclo com chave de ouro! O envio de e-mail é a ponta final da automação: é quando o robô "fala" com você.
+
+
+* Implementando no seu Workflow
+
+Para o alerta de Dólar, vamos usar a operação Send.
+
+Aqui está uma configuração sugerida para ficar profissional:
+
+- To (Destinatário): Seu e-mail (ou do cliente).
+
+- Subject (Assunto): Use as variáveis para o assunto chamar atenção.
+    - Ex: `Alerta de Câmbio: Dólar a R$ {{ $json.dolar.toFixed(2) }}`
+
+- Email Type: Mude para HTML.
+- Body (Corpo): Aqui você pode brincar com cores baseadas na decisão!
+
+    Exemplo de Corpo em HTML (Copie e cole na caixa Body):
+
+    <h3>Relatório do Dólar 💵</h3>
+    <p>O valor atual é: <b>R$ {{ $json.dolar.toFixed(2).replace('.', ',') }}</b></p>
+    <hr>
+    <p>A decisão do robô foi: <strong>{{ $json.decisao }}</strong></p>
+    <p><i>Este dado já foi salvo na sua planilha.</i></p>`
+
+
+
+* Quando usar cada um?
+
+? Send Email (SMTP)
+
+Se você precisa enviar e-mails de qualquer provedor (ex.: servidor corporativo, hospedagem própria).
+Se quer flexibilidade para trocar de serviço sem mudar o fluxo.
+
+
+? Gmail / Outlook
+
+Se você já usa essas contas e quer integração rápida.
+Se precisa de recursos extras da API (ex.: ler e-mails, acessar contatos, usar labels/pastas).
+
+
+👉 Em resumo:
+
+- Send Email é mais universal e funciona em qualquer cenário.
+- Gmail/Outlook são mais específicos e práticos, mas limitados ao ecossistema deles.
+- Se o objetivo é apenas enviar e-mails, o Send Email costuma ser mais versátil. 
+- Se você quer interagir com a caixa de entrada (ler, organizar, buscar), aí sim vale usar Gmail ou Outlook.
