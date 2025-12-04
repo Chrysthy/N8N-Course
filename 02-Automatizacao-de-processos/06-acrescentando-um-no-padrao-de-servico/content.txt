@@ -1,0 +1,80 @@
+Acrescentando um nó padrão de serviço
+
+O nó Google Sheets com a operação Append (Anexar/Adicionar) é o clássico "livro de registros" da automação.
+É aqui que o seu trabalho efêmero (os dados passando pelos cabos da internet) se torna permanente.
+
+
+* O que é?
+
+É uma ação dentro do nó do Google Sheets que diz: 
+    "Pegue estes dados que acabei de processar e escreva uma nova linha no final da minha planilha."
+
+Imagine que você tem um caderno:
+
+- Overwrite (Sobrescrever): Seria apagar a página inteira e escrever de novo.
+- Update (Atualizar): Seria ir na linha 5 e mudar um valor com corretivo.
+- Append (Anexar): É escrever na primeira linha em branco disponível, preservando tudo o que veio antes.
+
+
+* O que ele faz no seu Workflow?
+
+No contexto do seu monitor de Dólar:
+
+1. Ele recebe a decisão (ex: "Comprar muito" e o valor "5.30").
+2. Ele abre a sua planilha no Google Drive.
+3. Ele procura a última linha preenchida.
+4. Ele escreve os dados na linha seguinte.
+
+Isso cria um Histórico. Daqui a um mês, você poderá ver: "Nossa, no dia 03/12 o dólar baixou e o robô me avisou."
+
+
+* Como configurar (Passo a Passo)
+
+Para funcionar, sua planilha precisa estar preparada antes de você configurar o nó.
+
+1. Preparando a Planilha (O "Segredo")
+
+O n8n precisa saber onde colocar cada dado. Para isso, a Linha 1 da sua planilha deve ser o cabeçalho.
+Crie uma planilha com estas colunas na linha 1:
+
+- A1: `Data`
+- B1: `Moeda`
+- C1: `Valor`
+- D1: `Decisão`
+
+2. Configurando o Nó no n8n
+
+No nó do Google Sheets, selecione:
+
+- Resource: Sheet (Planilha)
+- Operation: Append (Anexar)
+- Spreadsheet ID: (Escolha o arquivo que você criou)
+- Mapping Column Mode: Map Each Column Manually (Mapear cada coluna manualmente). Esta é a opção mais didática.
+
+3. O Mapeamento (Onde a mágica acontece)
+
+Agora você vai ligar os pontos. O n8n vai perguntar: "O que eu coloco na coluna 'Valor'?"
+
+- Coluna `Data`: Use a expressão `{{ $now }}` (Isso carimba a hora exata da execução).
+- Coluna `Moeda`: Escreva "USD" (Texto fixo) ou puxe da variável.
+- Coluna `Valor`: Arraste a variável `{{ $json.dolar }}` (aquele número 5.30).
+- Coluna `Decisão`: Se este nó estiver ligado na saída "False" do seu **If**, você pode escrever o texto fixo "Comprar!!".
+
+
+* Exemplo Visual do Resultado
+
+A cada execução da automação, sua planilha cresce assim:
+
+DataMoedaValorDecisão
+
+2025-12-03 09:00
+USD 6.10
+Não Comprar
+
+2025-12-03 10:00
+USD6.15
+Não Comprar
+
+2025-12-03 11:00
+USD5.30
+Comprar!!
