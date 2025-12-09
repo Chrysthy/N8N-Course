@@ -1,0 +1,60 @@
+* Automação em finanças, especificamente para monitorizar cotações de moedas e tomar decisões de compra baseadas em regras pré-definidas.
+
+Esta imagem apresenta um fluxo de automação no n8n focado em finanças, especificamente para monitorizar cotações de moedas e tomar decisões de compra baseadas em regras pré-definidas.
+
+Aqui está o resumo detalhado do que cada etapa deste fluxo faz:
+
+1. O Gatilho (Trigger)
+Nó: Monitora par-moedas (Webhook).
+
+Tipo: Webhook (POST).
+
+O que faz: Diferente do fluxo anterior (que era agendado por tempo), este fluxo fica à espera de um sinal externo. Algum outro sistema ou aplicação envia uma ordem (um "POST") para este endereço web, contendo provavelmente os dados de quais moedas devem ser verificadas naquele momento.
+
+2. Ação de Consulta
+Nó: Consultar Cotação do par-moeda (HTTP Request).
+
+O que faz: O robô conecta-se a uma API externa de finanças (serviço de cotação) para perguntar o valor atual da moeda.
+
+Nota de Segurança: A descrição na imagem alerta que, se a moeda for inválida ou a requisição estiver errada, este nó pode falhar, o que é comum em integrações com APIs externas.
+
+3. Tratamento de Dados
+Nó: Conversão Dólar X Real (Set / Edit Fields).
+
+O que faz: Este nó serve para "limpar" ou organizar a informação que veio da API. Ele cria ou edita campos — por exemplo, pode estar a calcular a conversão exata ou a formatar o número (ex: mudar de 5.20 para R$ 5,20) para que o dado esteja bonito antes de ser usado nas próximas etapas. Dispensa o uso de código complexo (JavaScript).
+
+4. A Decisão Lógica (Roteamento Inteligente)
+Nó: Cotação do Dólar (Switch).
+
+O que faz: Este é o "cérebro" da operação. A imagem destaca uma diferença importante: ao contrário do nó If (que só tem Verdadeiro/Falso), o Switch permite criar vários caminhos baseados em regras.
+
+As Regras Visíveis:
+
+Caminho 1: "Não comprar" (provavelmente se a cotação estiver alta).
+
+Caminho 2: "Comprar muito" (provavelmente se a cotação estiver baixa/vantajosa).
+
+Fluxo: Na imagem, o fluxo segue pelo caminho de "Comprar muito" (ou pelo menos um caminho de ação positiva), levando à gravação dos dados.
+
+5. Registo da Informação
+Nó: Salva Cotação na Planilha (Google Sheets).
+
+O que faz: Regista a oportunidade encontrada. Ele adiciona uma nova linha (Append Sheet) numa folha de cálculo do Google com os detalhes da cotação e da conversão processada. Funciona como um histórico das oportunidades identificadas.
+
+6. Notificação Final
+Nó: Send email (Email ou SMTP).
+
+O que faz: Envia um alerta por e-mail com o resultado.
+
+Contexto: Provavelmente avisa o utilizador: "A cotação está boa! O valor foi registado na planilha e a regra de 'Comprar muito' foi ativada".
+
+Resumo da Lógica
+Recebe um pedido externo via Webhook.
+
+Consulta o valor atual da moeda na internet.
+
+Formata os valores para ficarem legíveis.
+
+Analisa a regra (Switch): A cotação está boa para comprar?
+
+Se sim: Grava na planilha do Google e envia um e-mail a avisar.
