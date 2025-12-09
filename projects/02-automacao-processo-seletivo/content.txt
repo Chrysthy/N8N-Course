@@ -1,0 +1,59 @@
+* O objetivo desse fluxo é automatizar a comunicação de um processo seletivo, separando os candidatos aprovados dos reprovados e tomando ações diferentes para cada grupo.
+
+? 1. O Gatilho (Início)
+
+Nó: Schedule Trigger (Dispara o email no dia xx/xx às 09:00 AM).
+
+O que faz: O processo não precisa de intervenção manual para começar. Ele está agendado para rodar automaticamente em uma data e hora específicas (09:00 da manhã).
+
+? 2. Obtenção de Dados
+
+Nó: Get row(s) in sheet (Obtém Candidatos).
+
+O que faz: O sistema se conecta a uma planilha (Google Sheets) e lê as linhas contendo as informações dos candidatos.
+
+Detalhe: A imagem mostra que ele leu 5 itens (5 candidatos) neste exemplo.
+
+? 3. A Decisão Lógica (O "Cérebro")
+
+Nó: If (Candidato Aprovado?).
+
+O que faz: Este é um filtro condicional. Ele verifica uma coluna específica da planilha.
+
+O Resultado: Ele divide o fluxo em dois caminhos:
+
+    True (Verdadeiro): Candidatos que passaram. (Na imagem: 2 itens).
+    False (Falso): Candidatos que não passaram. (Na imagem: 3 itens).
+
+? 4. Caminho dos Aprovados (Caminho Superior - True)
+
+O objetivo aqui é tratar cada aprovado individualmente.
+
+Nó: Loop Over Items (Para cada Candidato).
+Função: Como há múltiplos aprovados, o sistema pega um por um para processar, garantindo que os dados não se misturem.
+
+Nó: Send email (Envia email de aprovação).
+Ação: Envia um e-mail personalizado para o candidato atual do loop, informando a aprovação.
+
+Nó: Wait (Espera 5 segundos...).
+Função: Após enviar um e-mail, o sistema pausa por 5 segundos antes de voltar ao início do loop para pegar o próximo candidato.
+! Isso é uma boa prática para evitar bloqueios por "spam" ou limites de taxa (rate limits) do servidor de e-mail, garantindo que os envios sejam entregues com segurança.
+
+? 5. Caminho dos Reprovados (Caminho Inferior - False)
+Gerar um relatório interno, em vez de notificar os candidatos um a um (baseado na estrutura dos nós).
+
+Nó: Aggregate (Gera array de nomes).
+Função: Ao invés de processar um por um, este nó pega todos os 3 candidatos reprovados e os junta em uma única lista (ou tabela).
+
+Nó: Send email1 (Envia lista de candidatos reprovados).
+Ação: Envia apenas 1 e-mail (note que a entrada diz "1 item").
+
+Interpretação: Este e-mail vai para o RH ou para o gestor da vaga, contendo a lista consolidada de quem foi reprovado nesta etapa, para controle interno.
+
+? Resumo Técnico da Lógica
+
+- O robô acorda às 09:00.
+- Lê a planilha.
+- Separa quem passou de quem não passou.
+- Para quem passou: Manda e-mail individual com um pequeno intervalo de tempo entre eles.
+- Para quem não passou: Junta todos os nomes em uma lista e manda um único e-mail de relatório (administrador).
