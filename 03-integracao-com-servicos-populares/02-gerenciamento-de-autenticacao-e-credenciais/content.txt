@@ -1,0 +1,4 @@
+? Gerenciamento de Autenticação e Credenciais
+? Integração nativa com o Google Sheet
+
+- Google Sheets ou Google Planilhas : Considerado uma espécie de banco de dados low code. Uma forma simples de poder armazenar dados, trabalhar com dados no N8N.
