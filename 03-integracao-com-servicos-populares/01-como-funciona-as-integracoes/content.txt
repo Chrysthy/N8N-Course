@@ -1,6 +1,17 @@
-* Conceito de integração com serviços populares 
+? Conceito de integração com serviços populares 
 
-As integrações no n8n funcionam como conexões automáticas entre serviços, APIs e aplicativos, permitindo que você crie fluxos (workflows) que executam tarefas sem precisar programar tudo na mão. A lógica é simples: cada serviço vira um “node”, e você combina esses nodes para criar automações.
+* As integrações no n8n funcionam como conexões automáticas entre serviços, APIs e aplicativos, permitindo que você crie fluxos (workflows) que executam tarefas sem precisar programar tudo na mão. 
+A lógica é simples: cada serviço vira um “node”, e você combina esses nodes para criar automações.
+
+* API (Application Programming Interface)
+
+* API Rest é uma arquitetura de API que utiliza maneiras flexíveis de integrar apliacações por meio da transferência de estado representacional (REST).
+
+* Extensible Markup  Language (XML) é uma linguagem de marcação usada na formatação de documentos para que eles sejam lidos e interpretados por diferentes sistemas.
+
+* JSON (JavaScript Object Notation) é um formato de texto leve usado para armazenar e trocar dados de forma legível por humanos e analisável por máquinas.
+
+
 
 * Como funcionam as integrações no n8n
 
@@ -107,3 +118,27 @@ Merge → juntar resultados
 Code (JavaScript) → customizações avançadas
 
 Com isso, você adapta os dados antes de enviar para outra integração.
+
+
+
+? Integrações Nativas (Native Integrations)
+
+São integrações que já vêm prontas dentro do n8n, criadas oficialmente pela equipe do n8n.
+Elas aparecem direto na lista de nodes, sem precisar instalar mais nada.
+Características:
+
+Já estão no core do n8n.
+Não exigem plugins ou módulos extras.
+Suporte oficial.
+Configuração por interface (sem código).
+
+
+? Integrações Não Nativas (Non-Native Integrations)
+
+São integrações que o n8n não possui como node oficial, mas você pode conectar mesmo assim usando recursos genéricos.
+Formas de integrar algo não nativamente:
+
+HTTP Request Node → para falar com APIs de qualquer serviço.
+Webhook Node → para receber eventos de serviços que enviam requisições.
+Function / Function Item → para transformar dados com JavaScript.
+Community Nodes → nodes criados pela comunidade (não oficiais).
