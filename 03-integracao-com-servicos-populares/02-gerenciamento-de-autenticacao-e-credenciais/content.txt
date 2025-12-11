@@ -2,3 +2,56 @@
 ? Integração nativa com o Google Sheet
 
 - Google Sheets ou Google Planilhas : Considerado uma espécie de banco de dados low code. Uma forma simples de poder armazenar dados, trabalhar com dados no N8N.
+
+- Autenticação OAuth2 : O N8N possui integração nativa com o Google Sheets, utilizando o método de autenticação OAuth2. Com isso, é possível conectar o N8N com o Google Sheets de forma segura, sem a necessidade de armazenar senhas ou tokens manualmente.
+
+- Configuração da Credencial : Para configurar a credencial OAuth2 no N8N, é necessário criar um projeto no Google Cloud Console, habilitar a API do Google Sheets e configurar as credenciais OAuth2. Após isso, é possível adicionar a credencial no N8N e utilizá-la nos nós do Google Sheets.
+
+- Operações com o Google Sheets : Com a integração nativa, é possível realizar diversas operações no Google Sheets, como criar, ler, atualizar e deletar linhas, além de manipular planilhas e abas.
+
+
+
+* 1.1 Acesse o Console
+
+- Entre em: https://console.cloud.google.com/
+
+* 1.2 Crie um projeto (se ainda não tiver)
+
+- Clique no seletor de projetos
+- Novo projeto
+- Nomeie como quiser (ex.: n8n-integracao)
+
+* 1.3 Habilite a API do Google Sheets
+
+- Menu lateral → API e serviços → Biblioteca
+- Pesquise por Google Sheets API e clique em Ativar.
+
+* 1.4 Crie uma Credencial OAuth 2.0
+
+Menu lateral → API e serviços → Credenciais
+Depois: Criar credencial → ID do cliente OAuth
+
+? Configuração:
+
+Tipo: Aplicativo Web
+Nome: (qualquer)
+URIs de redirecionamento autorizados → adicione:
+
+https://api.n8n.io/oauth2/callback
+
+
+ou, se estiver usando sua instância local:
+
+http://localhost:5678/rest/oauth2-credential/callback
+
+
+Se estiver na Render, use:
+
+https://SEU-SUBDOMINIO.onrender.com/rest/oauth2-credential/callback
+
+* 1.5 Copie as credenciais
+
+Após criar você terá:
+
+Client ID
+Client Secret
