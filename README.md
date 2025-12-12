@@ -18,7 +18,9 @@
 
 ## 📸 Screenshots
 
-<img src=".github/gif-do-projeto.gif" alt="gif do projeto">
+<p align="center">
+  <img src=".github/n8n-santander.webp" alt="gif do projeto" width="350">
+</p>
 
 <br>
 
