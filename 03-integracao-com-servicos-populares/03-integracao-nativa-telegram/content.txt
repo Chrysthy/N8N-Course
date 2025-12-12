@@ -1,0 +1,30 @@
+? Integração Nativa com o Telegram
+
+* Fazendo a credencial no Telegram:
+1. Acesse o Telegram e inicie uma conversa com o BotFather: https://t.me/botfather
+
+2. Envie o comando /newbot e siga as instruções para criar um novo bot.
+
+3. Após a criação, você receberá um Token de API. Guarde esse token, pois ele será necessário para configurar a credencial no n8n.  
+
+4. Crie um canal ou grupo no Telegram onde o bot irá operar. Adicione o bot criado como administrador do canal ou grupo para que ele possa enviar e receber mensagens.
+
+* Configurando a credencial no n8n:
+
+1. No n8n, vá para "Credenciais" e clique em "Nova Credencial".
+
+2. Cole o Token de API do bot que você obteve do BotFather.
+
+* Para saber o ID do chat (canal ou grupo):
+
+1. Entre no seu canal "Estudos".
+
+2. Envie uma mensagem no chat e clique com o botão direito em cima daquela mensagem "teste" que você enviou.
+
+3. Selecione a opção Copiar Link da Postagem (Copy Post Link).
+
+4. O link será algo parecido com isto: https://t.me/c/1789456123/2
+A parte importante é o número gigante no meio (ex: 1789456123).
+
+5. Para funcionar no n8n (e na API do Telegram), tem sempre de adicionar o prefixo -100 na frente do número gigante.
+Exemplo: -1001789456123
