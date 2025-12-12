@@ -1,13 +1,14 @@
 ? Integração Nativa com o Telegram
 
 * Fazendo a credencial no Telegram:
+
 1. Acesse o Telegram e inicie uma conversa com o BotFather: https://t.me/botfather
 
 2. Envie o comando /newbot e siga as instruções para criar um novo bot.
 
 3. Após a criação, você receberá um Token de API. Guarde esse token, pois ele será necessário para configurar a credencial no n8n.  
 
-4. Crie um canal ou grupo no Telegram onde o bot irá operar. Adicione o bot criado como administrador do canal ou grupo para que ele possa enviar e receber mensagens.
+4. Crie um canal ou grupo no Telegram onde o bot irá operar. Adicione o bot criado (pelo username) como administrador do canal ou grupo para que ele possa enviar e receber mensagens.
 
 * Configurando a credencial no n8n:
 
@@ -28,3 +29,5 @@ A parte importante é o número gigante no meio (ex: 1789456123).
 
 5. Para funcionar no n8n (e na API do Telegram), tem sempre de adicionar o prefixo -100 na frente do número gigante.
 Exemplo: -1001789456123
+
+! Para remover a mensagem de rodapé que diz que foi enviado pelo N8N, vá nas configurações do nó Telegram > add field > Append n8n attribution > desmarque.
