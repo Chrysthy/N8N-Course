@@ -1,10 +1,10 @@
 ? Integração não-nativa com a UZAPI (API Rest)
 
-* Guia simples para conectar o WhatsApp no Zapi
+* Guia simples para conectar o WhatsApp no UZapi
 
 - Cadastro inicial
 
-Entre no site da Zapi.
+Entre no site da UZapi.
 Coloque seu nome, email e número de WhatsApp.
 Você vai receber um token de acesso.
 
@@ -24,3 +24,47 @@ Escaneie o QR Code para vincular.
 Role a página para baixo e faça um teste de mensagem.
 Lembre-se: o número precisa estar no formato DDI + DDD + número (exemplo: 55 31 99999-0000).
 A primeira mensagem pode demorar um pouco, porque o WhatsApp sincroniza as conversas.
+
+
+* Conectando o UZapi ao n8n com HTTP Request
+
+O n8n às vezes não interpreta bem exemplos em cURL (por causa de aspas, barras invertidas ou caracteres especiais), então o jeito mais seguro é montar manualmente o HTTP Request Node com os campos separados.
+
+- Method: POST
+
+- URL:
+
+Base URL fornecida pelo UZapi (ex.: https://api.uzapi.io)
+Acrescentar o endpoint desejado: /sendText, /sendAudio, /sendVideo, etc.
+Exemplo: https://api.uzapi.io/sendText
+
+- Headers:
+
+sessionkey: SUA_CHAVE_DE_SESSÃO
+(não precisa Content-Type, o n8n já envia JSON por padrão)
+
+- Body (JSON):
+
+json
+    {
+    "session": "minhaSessao",
+    "number": "5531999990000",
+    "text": "Testando envio de texto."
+    }
+
+! Observações importantes
+
+O campo number deve estar sempre no formato DDI + DDD + número (ex.: 55 para Brasil).
+O campo session precisa ser exatamente o nome da sessão que você criou no painel da UZapi.
+Se for enviar mídia, muda apenas o endpoint e os campos do body (ex.: file, caption).
+
+No n8n, você pode usar expressões para deixar dinâmico:
+
+json
+    {
+    "session": "minhaSessao",
+    "number": "{{$json.number}}",
+    "text": "{{$json.text}}"
+    }
+
+Assim, o número e o texto vêm de nós anteriores (ex.: Webhook ou Set).
