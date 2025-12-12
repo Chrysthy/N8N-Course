@@ -1,0 +1,26 @@
+? Integração não-nativa com a UZAPI (API Rest)
+
+* Guia simples para conectar o WhatsApp no Zapi
+
+- Cadastro inicial
+
+Entre no site da Zapi.
+Coloque seu nome, email e número de WhatsApp.
+Você vai receber um token de acesso.
+
+- Criar sessão
+
+Depois de entrar, escolha um nome da sessão e uma chave da sessão (pode ser qualquer nome).
+Clique em Conectar.
+
+- Ler o QR Code
+
+O sistema vai gerar um QR Code.
+No seu WhatsApp do celular, vá em Dispositivos conectados.
+Escaneie o QR Code para vincular.
+
+- Teste de envio
+
+Role a página para baixo e faça um teste de mensagem.
+Lembre-se: o número precisa estar no formato DDI + DDD + número (exemplo: 55 31 99999-0000).
+A primeira mensagem pode demorar um pouco, porque o WhatsApp sincroniza as conversas.
