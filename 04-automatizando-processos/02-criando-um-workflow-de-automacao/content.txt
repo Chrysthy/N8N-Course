@@ -1,0 +1,19 @@
+? Criando um Workflow de automação
+
+Esse são os 3 principais gatilhos:
+
+When clicking 'Execute Workflow': Esse gatilho inicia o workflow quando o usuário clica no botão "Execute Workflow" na interface do usuário do n8n.
+
+Scheduled Trigger: Esse gatilho inicia o workflow em intervalos de tempo específicos, como a cada hora, diariamente ou semanalmente.
+
+Webhook: Esse gatilho inicia o workflow quando uma solicitação HTTP é recebida em um URL específico.
+
+A partir deles, você pode adicionar diversos nós para realizar ações específicas, como enviar e-mails, processar dados, interagir com APIs externas, entre outros.
+
+Ex.: 
+
+Customer Datastore (n8n training): é um recurso didático usado para simular uma base de dados de clientes/pessoas e ensinar como buscar informações de forma automatizada dentro de um workflow.
+
+if: True or false - permite criar condições dentro do workflow, direcionando o fluxo de execução com base em critérios específicos.
+
+send email: permite enviar e-mails automaticamente como parte do workflow.
