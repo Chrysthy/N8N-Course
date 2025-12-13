@@ -1,0 +1,10 @@
+* Automatização de Distribuição de Artigos com Notificações Integradas
+
+- O objetivo desse fluxo é pegar numa lista grande de artigos/links numa planilha e ir soltando-os um por um no Telegram, marcando automaticamente os que já foram enviados para não repetir e enviar uma notificação via WhatsApp para a equipe sempre que um artigo for publicado com sucesso.
+
+? Situação Problema
+
+Imagine que você trabalha em uma empresa que publica artigos em seu blog diariammente. Para manter o público sempre atualizado, é necessário compartilhar cada novo post em um canal do telegram onde estão os seguidores da empresa. Além disse, a equipe precisa ser notificada via WhatsApp sempre que um artigo novo for enviado com sucesso para o canal.
+
+
+
