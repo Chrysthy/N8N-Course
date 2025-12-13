@@ -1,0 +1,23 @@
+? Analisando erros comuns de integrações
+
+* A principal forma de identificar erros no n8n é:
+
+- Verificar o ícone de erro no nó que falhou;
+
+- Analisar a mensagem de erro retornada, geralmente exibida no painel de execução;
+
+- Observar códigos HTTP (como 400, 401, 403, 404 e 500), que indicam o tipo do problema;
+
+- Essas mensagens ajudam a entender se o erro é de autenticação, endpoint incorreto, dados inválidos ou indisponibilidade do serviço externo.
+
+* Após identificar o erro, a análise envolve:
+
+- Conferir credenciais e tokens (expirados, inválidos ou ausentes)
+
+- Validar URLs, métodos HTTP e parâmetros
+
+- Verificar o formato dos dados enviados (JSON mal estruturado, campos obrigatórios ausentes)
+
+- Avaliar limites de requisição (rate limit) impostos pela API integrada
+
+- Testar execuções isoladas para confirmar se o problema é interno ou externo
