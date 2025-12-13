@@ -2,9 +2,45 @@
 
 - O objetivo desse fluxo é pegar numa lista grande de artigos/links numa planilha e ir soltando-os um por um no Telegram, marcando automaticamente os que já foram enviados para não repetir e enviar uma notificação via WhatsApp para a equipe sempre que um artigo for publicado com sucesso.
 
-? Situação Problema
+! Situação Problema
 
 Imagine que você trabalha em uma empresa que publica artigos em seu blog diariammente. Para manter o público sempre atualizado, é necessário compartilhar cada novo post em um canal do telegram onde estão os seguidores da empresa. Além disse, a equipe precisa ser notificada via WhatsApp sempre que um artigo novo for enviado com sucesso para o canal.
 
+? O Gatilho (O Despertador)
 
+Nó: Schedule Trigger (Seg a Sext às 09:00h).
+O que faz: O robô acorda sozinho de segunda a sexta-feira num horário específico. Não precisa de intervenção manual.
+
+? A Busca Inteligente
+
+Nó: Get row(s) in sheet (Obtém Artigos não enviados).
+O Segredo: Este nó não lê a planilha toda. Ele tem um filtro configurado para ler apenas as linhas onde a coluna "Status" está vazia ou marcada como "Não enviado".
+
+? O Controle de Fluxo
+
+Nó: Limit (Limita em 1 artigo).
+O que faz: Mesmo que o passo anterior encontre 50 artigos novos, este nó segura tudo e deixa passar apenas 1 item.
+
+Porquê: Para criar conteúdo diário. Assim, você alimenta a planilha uma vez e o bot tem conteúdo para os próximos 50 dias.
+
+? A Ação Principal
+
+Nó: Telegram (Envia o artigo no telegram).
+O que faz: Pega no Título, Descrição e no Link do artigo que passou pelo filtro e manda para o seu Canal.
+
+? A Verificação de Segurança
+
+Nó: If (Foi enviado com sucesso?).
+O que faz: Verifica se o nó do Telegram deu "sucesso" (true) ou se falhou (false).
+
+? Os Caminhos Finais (Atualização vs. Erro)
+
+Caminho do Sucesso (True):
+Nó: Update row in sheet (Atualiza planilha para status enviado).
+
+O que faz: Vai lá na planilha, na linha daquele artigo específico, e escreve "Enviado" na coluna de status. Isso garante que amanhã esse artigo não seja pego de novo.
+
+Nó: HTTP Request (Notifica por WhatsApp).
+
+O que faz: Manda uma notificação no WhatsApp avisando que tem um nova artigo no Telegram.
 
