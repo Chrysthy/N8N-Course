@@ -1,0 +1,41 @@
+? Algoritmo teórico
+
+Um algoritmo teórico é uma descrição lógica e abstrata de como resolver um problema.
+Ele não depende de ferramentas específicas e costuma ser expresso em:
+
+Pseudocódigo
+Fluxogramas conceituais
+Linguagem matemática ou lógica
+
+- Características:
+
+Foco na lógica e na sequência de passos
+Independente de tecnologia ou ambiente
+Não interage diretamente com sistemas reais
+Serve como base para implementação
+Pode não considerar falhas externas (rede, APIs, serviços fora do ar)
+
+Exemplo: um algoritmo que descreve “se o usuário for válido, então cadastrar; senão, retornar erro”.
+
+
+? Workflow
+
+Um workflow é a implementação prática e executável dessa lógica, aplicada a um contexto real.
+No caso do n8n, ele representa um fluxo automatizado que conecta sistemas, dados e ações.
+
+- Características:
+
+Foco na execução prática
+Depende de ferramentas, APIs e serviços externos
+Lida com eventos reais, como requisições HTTP e webhooks
+Precisa tratar erros, exceções e indisponibilidades
+Pode rodar de forma automática ou agendada
+
+Exemplo: um workflow que recebe dados via webhook, valida campos, envia para uma API externa, grava no banco e notifica em caso de erro.
+
+* Diferença central 
+
+- O algoritmo teórico responde “qual é a lógica para resolver o problema?”
+- O workflow responde “como essa lógica funciona na prática, integrada a sistemas reais?”
+
+Um algoritmo teórico define a lógica abstrata de resolução de um problema, enquanto um workflow representa a aplicação prática dessa lógica em um ambiente real, integrando sistemas, dados e tratando eventos e falhas de execução.
