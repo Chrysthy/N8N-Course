@@ -33,7 +33,7 @@ O que faz: Pega no Título, Descrição e no Link do artigo que passou pelo filt
 Nó: If (Foi enviado com sucesso?).
 O que faz: Verifica se o nó do Telegram deu "sucesso" (true) ou se falhou (false).
 
-? Os Caminhos Finais (Atualização vs. Erro)
+? Os Caminhos Finais (Atualização)
 
 Caminho do Sucesso (True):
 Nó: Update row in sheet (Atualiza planilha para status enviado).
@@ -44,3 +44,14 @@ Nó: HTTP Request (Notifica por WhatsApp).
 
 O que faz: Manda uma notificação no WhatsApp avisando que tem um nova artigo no Telegram.
 
+
+* Recursos Adicionais (Pessoal)
+
+? Code in JavaScript
+
+O que faz: Permite colocar mais números de telefone para enviar no WhatsApp.
+
+? Os Caminhos Finais 2 (Erro)
+
+Caminho da Falha (False):
+Nó: Update row in sheet1 (Atualiza planilha para status erro).
