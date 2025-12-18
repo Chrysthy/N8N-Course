@@ -1,0 +1,17 @@
+? Diferenças entre Workflow simples e complexo
+
+Workflows simples geralmente consistem em um único gatilho seguido por uma ou poucas ações. Eles são fáceis de configurar e entender, ideais para tarefas diretas, como enviar um e-mail de boas-vindas quando um novo usuário se registra.
+
+Workflows complexos, por outro lado, envolvem múltiplos gatilhos, condições, loops e ramificações. Eles são usados para processos mais elaborados que exigem várias etapas e decisões, como processamento de pedidos, integração com múltiplos sistemas ou automação de marketing avançada.
+
+* Por exemplo, um workflow simples pode ser algo como:
+- Gatilho: Quando um novo lead é adicionado a uma planilha do Google Sheets.
+- Ação: Enviar um e-mail de boas-vindas para o lead.
+
+* Já um workflow complexo pode incluir:
+- Gatilho: Quando um novo pedido é criado em uma loja online.
+- Ação 1: Verificar o estoque do produto.
+- Ação 2: Se o produto estiver em estoque, processar o pagamento.
+- Ação 3: Enviar uma confirmação de pedido ao cliente.
+- Ação 4: Atualizar o inventário.
+- Ação 5: Notificar a equipe de logística para o envio.
