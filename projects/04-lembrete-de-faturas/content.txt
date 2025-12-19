@@ -1,0 +1,43 @@
+* Automatização de Lembrete de Faturas com Notificações Integradas
+
+O objetivo desse fluxo é "acordar" a cada 4 dias, verificar quem tem boletos ou PIX vencendo (ou vencidos), cruza essa informação com os dados dos clientes e envia um e-mail de lembrete para cada um, um por um, com calma para não bloquear o servidor de e-mail.
+
+? O Despertador (Schedule Trigger)
+
+O que faz: Ao contrário do fluxo anterior que esperava uma venda acontecer, este aqui é proativo. Ele roda automaticamente "A cada 4 dias às 09AM".
+
+Função: Garante que a rotina de cobrança seja executada periodicamente sem ninguém precisar apertar um botão.
+
+? A Busca Paralela de Dados (HTTP Request e Split Out)
+
+O fluxo se divide para buscar duas informações diferentes ao mesmo tempo:
+
+    Caminho de Cima: Vai ao sistema financeiro buscar os dados de 100 Clientes (nome, email).
+
+    Caminho de Baixo: Vai ao mesmo sistema buscar 100 Cobranças (valor, data de vencimento, status).
+
+O nó Split Out: As APIs costumam devolver todos os dados num pacote só. O "Split Out" (que aparece como Gera lista... na imagem) serve para "desempacotar" esses dados, transformando uma lista gigante em itens individuais para o n8n processar.
+
+? O Casamento das Informações (Merge)
+
+O que faz: O nó "Unifica dados" pega a lista de clientes e a lista de cobranças e junta os pares.
+
+Lógica: Ele diz: "A cobrança de R$ 500 pertence ao Cliente João. A cobrança de R$ 200 pertence à Cliente Maria". Sem isso, você teria o valor da dívida mas não saberia para qual e-mail enviar.
+
+? O Filtro Crítico (Filter)
+
+O que faz: Aqui está a inteligência do negócio. Não basta ter uma cobrança; ela precisa atender a critérios. Ele filtra por "Cobrança no PIX/Boleto com vencimento igual ou inferior a [X] dias".
+
+Resultado: Se o cliente já pagou ou se a conta só vence mês que vem, ele é barrado aqui. Só passa quem realmente precisa ser cobrado agora.
+
+? O Ciclo de Envio (Loop Over Items + Wait) — A grande novidade aqui Diferente dos outros fluxos que mandavam tudo de uma vez, este usa um Loop:
+
+Loop Over Items: Ele pega a lista de devedores filtrada (digamos, 44 pessoas) e diz: "Vou processar um por um".
+
+? Send Email: Envia o aviso de vencimento para o primeiro da fila.
+
+? Wait (A Pausa): Aqui está o segredo. O nó "Aguarda 10 segundo" faz o robô parar antes de continuar.
+
+! Por que fazer isso? Se você enviar 100 e-mails no mesmo segundo, o Gmail ou Outlook podem achar que você é um SPAMMER e bloquear sua conta. Essa pausa "humaniza" o envio.
+
+? Retorno: Depois de esperar 10 segundos, a seta volta para o começo do Loop para pegar o próximo cliente, até acabar a lista.
