@@ -1,0 +1,7 @@
+? Conhecendo as variáveis locais vs globais
+
+- Variáveis locais: existem apenas dentro de um bloco específico. Elas não podem ser aproveitadas por outro workflow. Os dados que correm dentro de um fluxo são privados daquele fluxo.
+
+- Variáveis globais: disponível em todo programa e pode ser acessada de qualquer parte do código. Podem ser aproveitadas por todos os workflows.
+
+! Evite sobrescrever variáveis ou declarar variáveis com o mesmo nome. Isso perde a integridade dos dados e pode causar erros difíceis de rastrear.
