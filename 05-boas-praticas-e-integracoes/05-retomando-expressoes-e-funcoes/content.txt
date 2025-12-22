@@ -1,0 +1,22 @@
+? Retomando as expressões e funções
+
+Nesse exemplo, usamos o Customer Datastore (n8n training) para acessar os dados dos clientes. A seguir, o EditFields para colocar os parâmetros:
+
+- primeiro-nome - string - {{ $json.name.split(' ')[0] }}
+- sobrenome - string - {{ $json.name.split(' ')[1] }}
+- criado-em - string data e hora - {{ $json.created.toDateTime().format('dd/MM/yyyy') }}
+- salario - número - {{ 1500 }}
+- ativo - booleano - true or false
+- lista-if - array - ["RJ", "MG", "SP", "ES"]
+- dados - objeto - {"cidade": "Nova Iguaçu", "CEP":  25414874}
+
+! No n8n, referências a campos de nodes vizinhos não precisam do nome do node na expressão, porém quando vem de qualquer outro node que NÃO é o anterior, obrigatoriamente precisa referenciar o node: {{ $node["Nome do Node"].json.campo }}
+
+
+Resumo prático (regra mental)
+🧠 Regra do n8n
+
+* Dado do node anterior → $json.campo
+* Dado de outro node → $node["Nome"].json.campo
+* Fluxo simples → $json
+* Fluxo com IF / Switch / Merge → prefira $node[...]
