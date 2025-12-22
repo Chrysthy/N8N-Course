@@ -1,0 +1,31 @@
+? Como funcionam as expressões e funções
+
+Expressões: Servem para acessar, manipular e combinar dados que vêm dos nodes anteriores.
+
+* Onde elas são usadas?
+
+- Campos de texto
+- URLs
+- Headers
+- Body de requisições
+- Condições (IF)
+- Templates de mensagens (email, WhatsApp, etc.)
+
+
+Funções Prontas (Helpers): O n8n disponibiliza várias funções utilitárias, sem precisar criar código complexo. 
+
+*Strings
+{{ $json.nome.toUpperCase() }}
+{{ $json.email.toLowerCase() }}
+{{ $json.texto.trim() }}
+
+* Datas
+{{ $now.plus({ days: 7 }) }}
+{{ $now.format('dd/MM/yyyy') }}
+
+* Números
+{{ $json.valor * 1.1 }}
+{{ Math.round($json.preco) }}
+
+* Condições simples
+{{ $json.idade >= 18 ? 'Maior de idade' : 'Menor de idade' }}
