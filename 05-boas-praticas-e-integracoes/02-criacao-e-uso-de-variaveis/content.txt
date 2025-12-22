@@ -1,0 +1,15 @@
+? Criação e uso de variáveis
+
+Criando um nó simples com Edit Fields e HTTP Request
+
+- Edit Fields para definir variáveis 
+- HTTP Request para fazer uma requisição utilizando essas variáveis.
+
+Exemplo prático:
+
+1. No nó "Edit Fields", adicione novos campos para armazenar suas variáveis, como "apiUrl", "apiKey" e "page".
+2. Defina os valores dessas variáveis com as informações fornecidas pela API.
+3. Adicione um nó "HTTP Request" ao fluxo.
+4. No nó "HTTP Request", utilize as variáveis definidas no nó "Edit Fields" para configurar a URL e os cabeçalhos da requisição e deixar dinâmico.
+5. Execute o fluxo para verificar se a requisição foi feita corretamente utilizando as variáveis definidas.
+
