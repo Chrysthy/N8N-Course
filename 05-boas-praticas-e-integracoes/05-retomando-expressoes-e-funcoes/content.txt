@@ -1,6 +1,6 @@
 ? Retomando as expressões e funções
 
-Nesse exemplo, usamos o Customer Datastore (n8n training) para acessar os dados dos clientes. A seguir, o EditFields para colocar os parâmetros:
+Nesse exemplo, usamos o Customer Datastore (n8n training) para acessar os dados dos clientes. A seguir, o EditFields para colocar os parâmetros que já vem do Customer Datastore em campos separados ou até mesmo criar novos campos com valores fixos ou dinâmicos.
 
 - primeiro-nome - string - {{ $json.name.split(' ')[0] }}
 - sobrenome - string - {{ $json.name.split(' ')[1] }}
