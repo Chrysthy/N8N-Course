@@ -1,0 +1,17 @@
+? Como funcionam as variáveis no N8N
+
+As variáveis no N8N são importantes para promoverem uma automação customizada e dinâmica. Elas permitem que você armazene, manipule e reutilize dados ao longo do fluxo de trabalho (workflow), facilitando a integração entre diferentes sistemas e serviços.
+
+? Workflow Single-tenant vs Multi-tenant
+
+- Single-tenant: Cada usuário ou organização tem seu próprio ambiente isolado. As variáveis são específicas para cada workflow e não são compartilhadas entre diferentes usuários ou organizações.
+
+- Multi-tenant: Vários usuários ou organizações compartilham o mesmo ambiente. As variáveis podem ser configuradas para serem acessíveis por diferentes workflows, dependendo das permissões definidas.
+
+
+? Analogia (Casa vs. Prédio)
+
+Single Tenant (Casa): Você mora numa casa sozinha. Toda a estrutura (água, luz, paredes, quintal) é exclusiva sua. Se você quiser pintar a fachada de roxo ou derrubar uma parede, você pode. Ninguém mais tem acesso ou é afetado pelo que você faz lá dentro.
+
+Multi-Tenant (Prédio): Várias pessoas moram no mesmo endereço, divididas em apartamentos. A estrutura (encanamento central, elevador, portaria) é compartilhada. Se o elevador quebrar, afeta todo mundo. Os dados (seus móveis) estão separados por paredes, mas a estrutura é comum.
+
