@@ -1,0 +1,29 @@
+? Explorando as principais funções
+
+🔹 Manipulação de Strings
+
+Funções para tratar textos dentro do n8n (Expressions):
+
+toLowerCase() → converte para minúsculas.
+toUpperCase() → converte para maiúsculas.
+trim() → remove espaços extras no início e no fim.
+split() → quebra a string em array.
+join() → junta elementos de um array em string.
+replace() / replaceAll() → substitui caracteres ou padrões.
+includes() → verifica se contém um valor.
+substring() / slice() → extrai parte da string.
+padStart() / padEnd() → preenche strings com caracteres extras.
+
+🔹 Manipulação de Arrays
+
+Funções para tratar listas de dados:
+
+map() → transforma cada item em outro valor.
+filter() → filtra elementos com base em uma condição.
+reduce() → acumula valores em um único resultado.
+forEach() → itera sobre todos os elementos.
+find() → retorna o primeiro item que bate com a condição.
+some() / every() → verifica condições (algum / todos).
+concat() → junta arrays.
+
+! Dica extra: No n8n, você usará muito o split() (para separar nomes) e o replace() (para limpar telefones e CPFs), além do filter() para limpar listas de dados vindas de APIs.
