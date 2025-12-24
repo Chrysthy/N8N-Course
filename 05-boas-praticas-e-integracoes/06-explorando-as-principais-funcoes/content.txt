@@ -4,26 +4,55 @@
 
 Funções para tratar textos dentro do n8n (Expressions):
 
-toLowerCase() → converte para minúsculas.
-toUpperCase() → converte para maiúsculas.
-trim() → remove espaços extras no início e no fim.
-split() → quebra a string em array.
-join() → junta elementos de um array em string.
-replace() / replaceAll() → substitui caracteres ou padrões.
-includes() → verifica se contém um valor.
-substring() / slice() → extrai parte da string.
-padStart() / padEnd() → preenche strings com caracteres extras.
+- toLowerCase() → converte para minúsculas.
+- toUpperCase() → converte para maiúsculas.
+- trim() → remove espaços extras no início e no fim.
+- split() → quebra a string em array.
+- join() → junta elementos de um array em string.
+- replace() / replaceAll() → substitui caracteres ou padrões.
+- includes() → verifica se contém um valor.
+- substring() / slice() → extrai parte da string.
+- padStart() / padEnd() → preenche strings com caracteres extras.
 
 🔹 Manipulação de Arrays
 
 Funções para tratar listas de dados:
 
-map() → transforma cada item em outro valor.
-filter() → filtra elementos com base em uma condição.
-reduce() → acumula valores em um único resultado.
-forEach() → itera sobre todos os elementos.
-find() → retorna o primeiro item que bate com a condição.
-some() / every() → verifica condições (algum / todos).
-concat() → junta arrays.
+- map() → transforma cada item em outro valor.
+- filter() → filtra elementos com base em uma condição.
+- reduce() → acumula valores em um único resultado.
+- forEach() → itera sobre todos os elementos.
+- find() → retorna o primeiro item que bate com a condição.
+- some() / every() → verifica condições (algum / todos).
+- concat() → junta arrays.
+- flat() / flatMap()→ "achata" arrays aninhados (transforma uma lista de listas em uma lista única).
+-sort()→ ordena os elementos do array (alfabeticamente ou numericamente).
+- reverse()→ inverte a ordem dos elementos (o último vira o primeiro).
 
 ! Dica extra: No n8n, você usará muito o split() (para separar nomes) e o replace() (para limpar telefones e CPFs), além do filter() para limpar listas de dados vindas de APIs.
+
+
+🔹 Manipulação de Objetos
+
+Funções para lidar com estruturas de dados (JSON) dentro do n8n:
+
+- Object.keys() → retorna as chaves (nomes dos campos) do objeto.
+- Object.values() → retorna apenas os valores contidos no objeto.
+- Object.entries() → retorna pares chave/valor.
+- delete obj.key → remove uma propriedade específica de um objeto.
+- Spread ({ ...obj }) → clona ou mescla objetos (muito útil para juntar dados de dois nós).
+
+🔹 Datas (com Date)
+
+Manipulação de tempo usando o JavaScript nativo (Standard JS):
+
+- new Date() → cria a data e hora atual.
+- toISOString() → converte a data para o formato padrão ISO (yyyy-MM-ddTHH:mm:ssZ), que é o formato preferido por bancos de dados e APIs.
+- getFullYear(), getMonth(), getDate() → extrai partes específicas da data (Ano, Mês, Dia).
+- getHours(), getMinutes(), getSeconds() → extrai partes específicas do horário.
+- date.getTime() → retorna o "Timestamp" (o tempo em milissegundos), útil para operações matemáticas.
+- Diferença entre datas: Fórmula para calcular dias entre duas datas: (d2 - d1) / (1000 * 60 * 60 * 24).
+
+! Dica extra: No n8n, para formatar datas de forma amigável, use a função toDateTime().format('dd/MM/yyyy') ou toDateTime().format('dd/MM/yyyy HH:mm:ss') para incluir horas.
+
+! Dica de Ouro para n8n: Embora essas funções nativas de Date funcionem perfeitamente, o n8n também possui uma biblioteca chamada Luxon integrada ($now, $today) que facilita muito trabalhar com Timezones (fusos horários), algo que o Date nativo do JS às vezes complica.
