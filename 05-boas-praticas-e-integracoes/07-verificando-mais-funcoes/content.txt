@@ -1,0 +1,55 @@
+? Verificando mais funções
+
+🔹 Manipulação de Objetos
+
+Funções para lidar com estruturas de dados (JSON) dentro do n8n:
+
+- Object.keys() → retorna as chaves (nomes dos campos) do objeto.
+- Object.values() → retorna apenas os valores contidos no objeto.
+- Object.entries() → retorna pares chave/valor.
+- delete obj.key → remove uma propriedade específica de um objeto.
+- Spread ({ ...obj }) → clona ou mescla objetos (muito útil para juntar dados de dois nós).
+
+🔹 Datas (com Date)
+
+Manipulação de tempo usando o JavaScript nativo (Standard JS):
+
+- new Date() → cria a data e hora atual.
+- toISOString() → converte a data para o formato padrão ISO (yyyy-MM-ddTHH:mm:ssZ), que é o formato preferido por bancos de dados e APIs.
+- getFullYear(), getMonth(), getDate() → extrai partes específicas da data (Ano, Mês, Dia).
+- getHours(), getMinutes(), getSeconds() → extrai partes específicas do horário.
+- date.getTime() → retorna o "Timestamp" (o tempo em milissegundos), útil para operações matemáticas.
+- Diferença entre datas: Fórmula para calcular dias entre duas datas: (d2 - d1) / (1000 * 60 * 60 * 24).
+
+! Dica extra: No n8n, para formatar datas de forma amigável, use a função toDateTime().format('dd/MM/yyyy') ou toDateTime().format('dd/MM/yyyy HH:mm:ss') para incluir horas.
+
+! Dica de Ouro para n8n: Embora essas funções nativas de Date funcionem perfeitamente, o n8n também possui uma biblioteca chamada Luxon integrada ($now, $today) que facilita muito trabalhar com Timezones (fusos horários), algo que o Date nativo do JS às vezes complica.
+
+
+🔹 Utilidades Gerais (JavaScript)
+
+Ferramentas essenciais para converter tipos de dados e fazer contas:
+
+- JSON.stringify() → converte um Objeto (pacote de dados) em Texto (String JSON). Muito usado quando uma API exige que você envie o corpo da mensagem como texto puro.
+
+- JSON.parse() → faz o contrário: pega um Texto que parece JSON e converte em Objeto real para o n8n conseguir ler.
+
+- Math.floor() / Math.ceil() / Math.round() → funções de arredondamento (para baixo, para cima e para o mais próximo, respectivamente).
+
+- Math.random() → gera um número aleatório (muito útil para criar IDs únicos ou sortear itens).
+
+- parseInt() / parseFloat() → converte texto em número (ex: transforma o texto "50.5" no número 50.5 para você poder somar).
+
+- Operador Ternário (cond ? valor1 : valor2) → O famoso "If de uma linha" que vimos antes.
+
+🔹 Funções Específicas do n8n
+
+Comandos que você usa especificamente dentro do nó Code (antigo Function Node) ou nas expressões:
+
+- items.map(item => ...) → técnica para editar vários itens de uma vez (manipulação em lote).
+
+- return [{ json: { chave: valor } }] → a estrutura obrigatória para devolver dados num nó de Código. O n8n exige que os dados estejam sempre dentro de um objeto json.
+
+- item.json.campo → a forma de acessar um dado específico que veio do nó anterior dentro de um loop.
+
+- {{ $json["campo"] }} → a sintaxe padrão que você usa nas caixinhas visuais (Expression Editor) para puxar uma variável.
