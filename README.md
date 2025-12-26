@@ -52,23 +52,33 @@
 
 ## 💻 Projects Overview
 
-- Build a workflow 
+- Build a workflow
 - Create a webhook to update Google Sheets
 - Develop a simple automated flow
 
+<br>
+
+## 💻 Projects
+
+- Currency Exchange Rates
+- Recruitment Process
+- Article Notification System
+- Invoice Reminder
 
 <br>
 
 ## 📜 License
 
-* This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
+- This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
 
 <br>
 
 ## 🫱🏻‍🫲🏻 Contributing
+
 <p> Contributions, issues, and feature requests are welcome! Please, feel free to do it! 😉 </p>
 
 <br>
 
 ## 🌟 Support
+
 <p> If you like this project, please give it a star ⭐ and share it with others! 😄 </p>
