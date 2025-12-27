@@ -1,0 +1,59 @@
+? Convertendo os tipos de dados
+
+No n8n, a conversão de tipos de dados é feita principalmente por meio de expressões, usando funções nativas do JavaScript. Isso é essencial para evitar erros em cálculos, validações, comparações e integrações com APIs.
+
+* Conversão para número (toNumber())
+
+Usada quando um valor vem como string, mas precisa ser tratado como número, por exemplo em cálculos.
+
+Exemplo:
+
+{{ $json.salario * $json['meses-trabalhados'].toNumber() }}
+
+Nesse caso:
+
+meses-trabalhados é convertido de string para número.
+Permite realizar o cálculo corretamente.
+
+
+* Conversão para texto (toString())
+
+Usada quando o dado precisa ser tratado como string, muito comum para:
+
+- telefones
+- documentos
+- IDs
+- envio para APIs ou planilhas
+
+Exemplo:
+
+{{ $json.telefone.toString() }}
+
+
+Evita problemas como:
+
+perda de zeros à esquerda.
+erro de tipo em integrações.
+
+
+* Conversão para boolean (toBoolean())
+
+Usada para transformar valores textuais ou numéricos em true / false, especialmente em condições (IF, Switch).
+
+Exemplo:
+
+{{ $json['verdadeiro-falso'].toBoolean() }}
+
+
+Útil quando o valor vem como:
+
+- "true" / "false"
+- 1 / 0
+- "yes" / "no"
+
+
+! Regra prática no n8n
+
+- Vai calcular → use toNumber()
+- Vai exibir ou enviar texto → use toString()
+- Vai decidir caminhos → use toBoolean()
