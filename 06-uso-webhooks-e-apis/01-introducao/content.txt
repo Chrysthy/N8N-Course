@@ -1,0 +1,30 @@
+? Introdução aos Webhooks e APIs
+
+Webhook = aviso automático enviado para uma URL quando um evento acontece.
+
+1. API (MANUAL) 🔄
+   Ação: Você vai buscar.
+   Resultado: ≡ (Uma lista/pilha de dados)
+   
+   [Robô] ---------------------> [ SERVIDOR ]
+                                     |
+           <---------------------    |
+           (Traz 10, 20, 50 itens)   |
+           (As várias linhas)        ≡
+                                     ≡
+
+--------------------------------------------------
+
+2. WEBHOOK (AUTOMÁTICO) ⚡
+   Ação: O dado chega até você.
+   Resultado: — (Um único dado)
+
+   [Robô] <--------------------- [ SERVIDOR ]
+           (Traz 1 item apenas)      |
+           (A linha única)           —
+                                     
+
+
+API / MAN (Cima): várias linhas empilhadas porque quando você busca manualmente, geralmente traz um histórico (um lote de coisas que aconteceram).
+
+WH / AUT (Baixo): uma linha curta porque o Webhook é tempo real. Aconteceu uma venda, chega uma venda. Ele não acumula, ele entrega na hora.
