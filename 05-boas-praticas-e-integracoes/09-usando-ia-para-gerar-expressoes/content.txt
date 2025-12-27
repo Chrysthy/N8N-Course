@@ -1,0 +1,34 @@
+? Usando a IA para gerar expressões
+
+* Usando IA para gerar expressões no n8n
+
+O n8n permite utilizar IA integrada para ajudar na criação de expressões, facilitando o trabalho de quem ainda não domina totalmente a sintaxe ou quer ganhar velocidade.
+
+* Geração automática de expressões com IA
+
+A IA pode:
+
+- Analisar o contexto do node
+- Entender o objetivo descrito pelo usuário
+- Gerar expressões prontas para uso
+- Isso reduz erros e acelera a construção do fluxo.
+
+
+* Exemplos Práticos:
+
+- Gere uma expressão de única linha no n8n que calcule a diferença de 2 datas no formato: dd/MM/yyyy
+
+{{ Math.ceil((new Date($json['data-vencimento'].split('/').reverse().join('-')) - new Date($now.toString().split('/').reverse().join('-'))) / (1000 * 60 * 60 * 24)) }}
+
+
+- Gere uma expressão que mantenha apenas numero em uma string.
+
+{{ $json.texto.replace(/\D/g, '') }}
+
+
+- Gere uma expressão do n8n que use operador ternário, fazendo a associação dos numeros com as marcas:
+
+1 = Google 2 = Facebook 3 = Google 4 = Youtube
+
+{{ $json.numero == 1 ? 'Google' : $json.numero == 2 ? 'Facebook' : $json.numero == 3 ? 'Google' : $json.numero == 4 ? 'Youtube' : 'Desconhecido' }}
+
