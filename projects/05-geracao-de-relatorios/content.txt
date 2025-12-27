@@ -1,0 +1,92 @@
+? Enviando relatório via e-mail
+
+Este workflow busca uma lista de usuários, organiza os dados, consolida tudo em um único resultado e envia essas informações por email.
+
+* When clicking “Execute workflow”
+Tipo: Trigger manual
+
+O que faz:
+Inicia o fluxo manualmente, quando você clica em Execute workflow no n8n.
+
+Para que serve:
+
+Testes
+Execuções sob demanda
+Fluxos que não precisam ser automáticos
+
+Ele não recebe dados externos, apenas dispara o workflow.
+
+
+* Customer Datastore (n8n training) – getAllPeople
+Tipo: Node de dados
+
+O que faz:
+Busca todos os registros de pessoas armazenados no Customer Datastore do n8n.
+
+Resultado:
+
+Retorna 5 itens (5 usuários)
+Cada item representa uma pessoa, com seus campos (nome, email, etc.)
+
+É a fonte de dados do fluxo.
+
+
+* Edit Fields (manual) – Lista de Usuários
+Tipo: Transformação de dados
+
+O que faz:
+Permite editar, renomear, remover ou criar campos dos dados recebidos.
+
+Neste fluxo:
+
+Organiza os dados dos usuários
+Prepara os campos que serão usados depois (ex: nome, email)
+
+Muito usado para limpar e padronizar dados antes de outras etapas.
+
+
+* Aggregate
+Tipo: Agregação
+
+O que faz:
+Agrupa vários itens em um único item.
+
+Neste caso:
+
+Junta os 5 usuários em 1 item
+
+Geralmente cria:
+
+uma lista
+um resumo
+ou um texto consolidado
+
+Essencial quando você precisa:
+
+enviar um único email
+gerar um relatório
+evitar múltiplos envios
+
+
+* Send email
+Tipo: Ação
+
+O que faz:
+Envia um email único usando os dados agregados.
+
+Neste fluxo:
+
+Recebe 1 item
+Usa a lista agregada de usuários
+Envia um email com essas informações
+
+É o resultado final do workflow.
+
+
+🧠 Visão geral do fluxo
+
+- Execução manual
+- Busca lista de usuários
+- Ajusta os campos
+- Agrupa tudo em um item
+- Envia um email com o resultado
