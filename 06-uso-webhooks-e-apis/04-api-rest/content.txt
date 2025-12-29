@@ -1,0 +1,27 @@
+? Entendendo sobre o API Rest
+
+* Webhook → dados entram no n8n
+* HTTP Request (API) → dados saem do n8n ou são buscados fora
+
+! Webhooks recebem eventos externos no n8n, enquanto o HTTP Request permite que o n8n se comunique com APIs externas, enviando ou buscando dados.
+
+? Webhook: Traz dados de aplicações externas para dentro do n8n.
+
+- O n8n fica esperando uma requisição
+- Um sistema externo envia dados
+- Normalmente via POST
+- Muito usado para eventos (formulário enviado, pagamento aprovado, etc.)
+- O n8n é passivo aqui: ele só recebe.
+
+? API (HTTP Request): Envia dados do n8n para fora ou busca dados externos
+
+- O n8n inicia a requisição
+
+    Pode:
+    buscar dados (GET)
+    enviar dados (POST)
+    atualizar (PUT / PATCH)
+    remover (DELETE)
+
+- Comunicação com APIs externas
+- Aqui o n8n é ativo: ele faz a chamada.
