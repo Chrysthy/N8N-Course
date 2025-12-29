@@ -1,0 +1,39 @@
+? Utilizando método GET vs POST do HTTP Request
+
+Query Parameters controlam filtros e parâmetros da requisição via URL, enquanto Headers transportam informações de autenticação e configuração da chamada.
+
+* Query Parameters (Mais comuns em GET, mas podem existir em outros métodos)
+
+- Vão na URL	
+- Visíveis	
+- Filtros e buscas	
+- Ex: ?id=10	
+
+* Headers (São usados em todos os métodos HTTP)
+
+- Vão no cabeçalho
+- Não visíveis
+- Autenticação e controle
+- Ex: Authorization
+
+
+* Body Parameters (apenas em POST)
+
+- Body Parameters são os dados enviados no corpo da requisição HTTP.
+- Não aparecem na URL nem nos headers.
+- São usados principalmente para enviar dados estruturados para a API.
+- Não é apenas POST, o PUT, PATCH e DELETE (raramente usa body. Algumas APIs aceitam, mas não é comum) também podem utilizá-los.
+
+? Para que servem os Body Parameters?
+
+- criar registros
+- enviar formulários
+- atualizar objetos complexos
+- enviar listas, objetos e arrays
+
+Eles suportam:
+
+- JSON
+- XML
+- Form-data
+- x-www-form-urlencoded
