@@ -1,0 +1,61 @@
+? Formatos de saídas de respostas
+
+No HTTP Request, em:
+
+Options → Add option → Response → Response Format
+
+o n8n oferece 4 formatos de saída para tratar a resposta da API. Por padrão, o formato é Autodetect, mas pode ser definido manualmente.
+
+* Autodetect (padrão)
+O n8n detecta automaticamente o formato da resposta com base nos headers da API (principalmente Content-Type).
+
+Exemplos:
+
+- application/json → JSON
+- text/plain → Texto
+- application/octet-stream → Arquivo
+
+Ideal para a maioria dos casos
+Pode falhar se a API retornar headers incorretos
+
+
+* JSON
+Força o n8n a interpretar a resposta como **JSON**.
+
+Use quando:
+
+- Você sabe que a API sempre retorna JSON
+- Quer evitar erro de autodetecção
+- Precisa acessar campos com expressões (`{{$json.campo}}`)
+
+Se a resposta **não for JSON válido**, o node falha.
+
+
+* Text
+Retorna a resposta como texto puro (string).
+
+Use quando:
+
+- A API retorna texto simples
+- HTML
+- XML
+- Logs
+- Mensagens não estruturadas
+
+Não permite acesso direto a campos como em JSON.
+
+
+* File
+
+Trata a resposta como arquivo binário.
+
+Use quando:
+
+- A API retorna:
+    - PDF
+    - Imagem
+    - CSV
+    - ZIP
+- Você pretende salvar ou enviar o arquivo depois
+
+O conteúdo fica em: binary.data
