@@ -64,6 +64,7 @@
 - Recruitment Process
 - Article Notification System
 - Invoice Reminder
+- Report Generator
 
 <br>
 
