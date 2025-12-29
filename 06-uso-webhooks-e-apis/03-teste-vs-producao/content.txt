@@ -1,0 +1,35 @@
+? Elaborando Webhook de Teste vs Produção
+
+* Teste URL → fase de desenvolvimento, validação e debug
+* Produção URL → automação já validada e em uso real
+
+- Teste URL
+
+Só funciona enquanto o editor está aberto
+Executa apenas uma vez por clique
+Não fica “escutando” eventos
+Aparece na seção de editor do n8n
+
+- Produção URL
+
+Funciona mesmo com o editor fechado
+Fica sempre ativo
+Aceita múltiplas requisições simultâneas
+Aparece na seção de executions do n8n
+
+Teste URL: É utilizada durante o desenvolvimento do workflow para validar se o webhook está funcionando corretamente sem impactar dados reais. Para receber eventos de teste, é necessário clicar manualmente em “Execute Workflow” no editor do n8n. Essa URL só funciona enquanto o editor está aberto e executa apenas uma vez por teste.
+
+Produção URL: É utilizada para receber eventos reais do sistema e impacta diretamente o ambiente de produção. Para que funcione corretamente, o workflow deve estar ativado, fazendo com que o n8n fique escutando eventos 24/7, mesmo com o editor fechado. Essa URL deve ser protegida e usada apenas após todos os testes estarem concluídos.
+
+
+? Pinando Webhooks de Produção: 
+
+No n8n, pinar (pin) dados de um webhook de produção significa salvar temporariamente um payload real recebido pelo webhook para que ele possa ser reutilizado durante o desenvolvimento e os testes do workflow.
+
+Quando um webhook de produção recebe uma requisição real, é possível fixar esses dados para:
+
+- Visualizar a estrutura do payload
+- Testar e ajustar os próximos nodes
+- Criar e validar expressões sem precisar disparar o webhook novamente
+
+Mesmo com o webhook pinado, o workflow não executa automaticamente novas requisições enquanto estiver em modo de edição, evitando impactos no ambiente real.
