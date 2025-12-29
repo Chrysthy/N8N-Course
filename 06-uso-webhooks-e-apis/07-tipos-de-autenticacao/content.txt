@@ -1,0 +1,36 @@
+? Conhecendo os tipos de autenticação
+
+Existem diversos tipos de autenticação que podem ser utilizados em APIs e webhooks para garantir a segurança e o controle de acesso. A seguir, estão alguns dos métodos mais comuns:
+
+1️⃣ Autenticação Básica (Basic Authentication)
+    - Utiliza um nome de usuário e uma senha codificados em Base64 e enviados no cabeçalho da requisição.
+
+    - É simples de implementar, porém menos segura, pois o Base64 não é criptografia e pode ser facilmente decodificado caso a comunicação não utilize HTTPS.
+
+    - Não possui controle de expiração ou revogação de credenciais.
+
+2️⃣ Token de Acesso (Access Token)
+
+    - Utiliza um token gerado pelo sistema, enviado no cabeçalho da requisição, geralmente no formato Authorization: Bearer <token>.
+
+    - O token pode ter tempo de expiração e pode ser revogado, oferecendo mais segurança e controle de acesso em comparação à autenticação básica.
+
+    - É amplamente utilizado em APIs REST modernas.
+
+3️⃣ OAuth2.0 (Open Authorization)
+
+    - É um protocolo de autorização que permite que aplicações acessem recursos protegidos em nome do usuário sem a necessidade de compartilhar suas credenciais.
+
+    - Funciona por meio da emissão de tokens de acesso (e, em alguns casos, refresh tokens).
+
+    - Muito utilizado por grandes plataformas como Google, Facebook e Twitter, principalmente na versão OAuth 2.0.
+
+4️⃣ API Key
+
+    - Muito comum em APIs públicas
+    - Segurança média
+    - Normalmente sem escopo ou permissão granular
+    - Chave fixa fornecida pela API
+    - Enviada por:
+        Header
+        Query Parameter
