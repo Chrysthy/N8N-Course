@@ -1,0 +1,75 @@
+? Conhecendo os tipos de parâmetros
+
+Temos 3 parâmetros:
+
+- Send Query Parameters
+- Send Headers
+- Send Body
+
+* Send Query Parameters
+Para não ter que declarar os parâmetros na URL, podemos usar o Send Query Parameters e declarar esses valores de forma mais organizada.
+
+Onde vão: na URL da requisição
+Formato: ?chave=valor
+
+Para que servem:
+
+filtrar dados
+fazer buscas
+paginação
+ordenação
+
+Exemplo:
+https://api.exemplo.com/users?status=active&page=2
+
+São visíveis e não devem conter dados sensíveis.
+Mais comuns em GET, mas não exclusivos.
+
+
+* Send Headers
+É muito usado na parte de autenticação: Tokens, API Key, passar a autenticação via cabeçalho.
+
+Onde vão: no cabeçalho da requisição
+Não aparecem na URL
+
+Para que servem:
+
+autenticação (tokens, API keys)
+definir formato dos dados
+controle de versão da API
+
+Exemplos comuns:
+Authorization: Bearer TOKEN
+Content-Type: application/json
+Accept: application/json
+
+Headers são usados em todos os métodos HTTP (GET, POST, PUT, PATCH, DELETE).
+
+
+* Send Body (Body Parameters)
+Quando você precisa passar informações para a API mas sem expor esses dados. Geralmente são dados necessários para executar um determinado endpoint. 
+
+Onde vão: no corpo da requisição
+Formato comum: JSON
+
+Para que servem:
+
+criar dados
+atualizar registros
+enviar objetos complexos
+
+Exemplo:
+{
+  "nome": "Chrystine",
+  "email": "chrystine@email.com"
+}
+
+
+Utilizados principalmente em:
+
+POST
+PUT
+PATCH
+
+! Não são usados em GET (padrão REST).
+
