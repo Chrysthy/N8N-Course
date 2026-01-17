@@ -39,5 +39,5 @@ O problema está no serviço que você está tentando acessar (ou no próprio se
 
 
 
-
+! Nota: Além dos códigos HTTP, o n8n tem seus próprios erros de execução, como JSON Parsing Error (erro de sintaxe) ou ERROR: UNKNOWN (falha interna do node), que aparecem em vermelho na interface de execução.
 
