@@ -12,5 +12,19 @@ Esses códigos indicam que o node (nó) executou sua função corretamente ou qu
 - 204 No Content: A requisição funcionou, mas não há dados para retornar. É o comportamento padrão de muitos Webhooks no n8n se você não usar um node "Respond to Webhook".
 
 
+* 2. Erros do Cliente (4xx)
+Estes são os erros mais comuns durante a construção do workflow. Geralmente significam que você (ou o n8n) enviou algo errado para a API.
+
+- 400 Bad Request: A estrutura dos dados enviados está incorreta.
+    Verifique o JSON que você está montando no node HTTP Request. Faltou uma vírgula? Um campo obrigatório está vazio?
+
+- 401 Unauthorized / 403 Forbidden: Problemas de permissão.
+    Suas Credentials (Credenciais) estão erradas, expiradas ou a API Key não tem permissão para acessar aquele endpoint específico.
+
+- 404 Not Found: O recurso não existe.
+    A URL no node HTTP Request está errada ou o ID do item que você tentou atualizar não existe no sistema de destino.
+
+- 429 Too Many Requests: Você atingiu o limite de taxa (rate limit) da API.
+    Isso acontece muito em loops. Solução: Use o node Split in Batches e adicione um node Wait para desacelerar o fluxo.
 
 
