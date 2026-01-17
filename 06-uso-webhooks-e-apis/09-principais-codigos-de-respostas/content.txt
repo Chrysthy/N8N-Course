@@ -1,0 +1,16 @@
+? Principais códigos de respostas
+
+No n8n, os códigos de resposta que você encontra são, na grande maioria, os Status Codes do protocolo HTTP padrão.
+
+* 1. Sucesso (2xx)
+Esses códigos indicam que o node (nó) executou sua função corretamente ou que a API externa aceitou sua solicitação.
+
+- 200 OK: O padrão ouro. A requisição funcionou perfeitamente. Se for um Webhook, significa que o workflow foi acionado e (se configurado) retornou dados.
+
+- 201 Created: Muito comum ao usar o node HTTP Request com o método POST. Significa que o recurso (ex: um novo contato no CRM) foi criado com sucesso.
+
+- 204 No Content: A requisição funcionou, mas não há dados para retornar. É o comportamento padrão de muitos Webhooks no n8n se você não usar um node "Respond to Webhook".
+
+
+
+
