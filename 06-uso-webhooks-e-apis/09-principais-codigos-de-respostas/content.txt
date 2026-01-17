@@ -28,3 +28,16 @@ Estes são os erros mais comuns durante a construção do workflow. Geralmente s
     Isso acontece muito em loops. Solução: Use o node Split in Batches e adicione um node Wait para desacelerar o fluxo.
 
 
+* 3. Erros do Servidor (5xx)
+O problema está no serviço que você está tentando acessar (ou no próprio servidor do n8n se você estiver usando self-hosted).
+
+- 500 Internal Server Error: O servidor remoto travou ou encontrou uma condição inesperada.
+    Dica: Tente reenviar a requisição após alguns minutos.
+
+- 502 Bad Gateway / 504 Gateway Timeout: O tempo de resposta excedeu o limite.
+    Se o seu workflow é muito complexo e demora muito para responder a um Webhook, o serviço que chamou o Webhook pode "desistir" e gerar esse erro.
+
+
+
+
+
