@@ -1,0 +1,64 @@
+? Limitar acesso ao Webhook por IP
+
+* Forma Lógica: Usando um Node "If" (Mais acessível)
+
+Neste método, o n8n recebe a requisição de qualquer um, mas "expulsa" quem não tiver o IP correto logo no início.
+
+Pré-requisito: Seu n8n precisa estar atrás de um Proxy (Nginx, Traefik, Cloudflare) para que o header x-forwarded-for ou x-real-ip apareça.
+
+* Passo a Passo:
+
+    Webhook: Configuração normal (Authentication: None).
+
+    Node If (O porteiro):
+
+    Adicione um node If logo após o Webhook.
+
+    Condição: String
+
+    Value 1 (O que chegou): {{ $json.headers["x-forwarded-for"] }} (ou x-real-ip).
+
+    Operation: Equal to (Igual a) ou Contains (Contém).
+
+    Value 2 (O permitido): 203.0.113.10 (O IP que você quer liberar).
+
+    Caminho True: Conecta ao resto do seu fluxo.
+
+    Caminho False: Conecta a um node Respond to Webhook.
+
+    Configure para responder com Status Code: 403 (Forbidden).
+
+    Atenção: O header x-forwarded-for pode conter uma lista de IPs (ex: client_ip, proxy_ip). Se for o caso, mude a operação do If para Contains em vez de Equal to.
+
+
+* 2. Forma de Infraestrutura (A Mais Segura)
+
+Neste método, o bloqueio acontece antes da requisição chegar no n8n. Isso economiza processamento do seu servidor, pois ele nem precisa ligar o workflow para negar o acesso.
+
+- A. Usando Nginx (Proxy Reverso)
+Se você roda n8n com Docker/Nginx, adicione no seu arquivo de configuração (server block):
+
+Nginx
+location /webhook/ {
+    allow 203.0.113.10; # IP permitido
+    deny all;           # Bloqueia o resto
+    proxy_pass http://localhost:5678;
+}
+
+
+- B. Usando Cloudflare (WAF)
+Se seu domínio passa pelo Cloudflare:
+
+    Vá em Security > WAF.
+
+    Crie uma regra: "Se o caminho contém /webhook/ E o IP de origem NÃO é Meu_IP_Permitido".
+
+    Ação: Block.
+
+
+
+Dessa forma, a requisição nem chega no seu n8n se o IP não for permitido.
+
+! Dica: Se você estiver implementando a "Forma Lógica", lembre-se de olhar primeiro no histórico de execuções qual é o nome exato do header que seu servidor está enviando (x-forwarded-for, x-real-ip ou cf-connecting-ip), pois isso varia dependendo da sua hospedagem.
+
+! Atenção: Limitar acesso por IP pode ser problemático se os IPs dos usuários mudarem frequentemente (ex: conexões móveis). Considere usar autenticação via API Key ou OAuth2 para maior flexibilidade.
