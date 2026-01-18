@@ -36,3 +36,18 @@ Como configurar:
 
 Como chamar: Quem for enviar dados para o seu n8n precisará incluir esse header exato. Se não incluir, o n8n rejeita com erro 401 Unauthorized ou 403 Forbidden antes mesmo de iniciar o workflow.
 
+
+* 3. Autenticação via Lógica do Workflow (Tokens Bearer / JWT / Assinatura)
+Se você precisa validar um Bearer Token (como um JWT) ou uma assinatura de webhook (como Stripe ou GitHub), o node Webhook "aceita tudo", e você valida logo no passo seguinte.
+
+Como configurar:
+
+    No Webhook, deixe Authentication como None.
+
+    Adicione um node If logo em seguida.
+
+    Configure a condição para verificar o Header Authorization.
+
+    Exemplo: {{ $json.headers.authorization }} Equal to Bearer token-secreto-123.
+
+Resultado: Se o token não bater, você roteia para o caminho "False" e encerra o fluxo (ou responde com um erro 403 usando o node Respond to Webhook).
