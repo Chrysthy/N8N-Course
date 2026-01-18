@@ -21,3 +21,18 @@ Quando usar: Ótimo para testes rápidos no navegador (ele abre um popup pedindo
 
 
 
+* 2. Header Auth (Chave de API)
+É o método mais profissional para integrações entre servidores (API-to-API). Você define um "segredo" que deve ser enviado no cabeçalho da requisição.
+
+Como configurar:
+
+    No node Webhook, mude Authentication para Header Auth.
+
+    Crie uma nova credencial.
+
+    Name: O nome do cabeçalho (padrão comum: X-API-KEY ou apikey).
+
+    Value: A senha/token que você inventar (ex: minha-senha-super-secreta-123).
+
+Como chamar: Quem for enviar dados para o seu n8n precisará incluir esse header exato. Se não incluir, o n8n rejeita com erro 401 Unauthorized ou 403 Forbidden antes mesmo de iniciar o workflow.
+
