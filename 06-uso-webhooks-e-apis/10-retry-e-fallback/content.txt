@@ -17,3 +17,30 @@ Configure:
 
 Se todas as tentativas falharem, o node pode acionar um fluxo alternativo, como enviar uma notificação ou registrar o erro em um sistema de monitoramento.
 
+* 3. Fallback Node
+On Error oferece três caminhos:
+
+!A. Stop Workflow (Padrão)
+    O que faz: Se o node der erro, o workflow pára imediatamente.
+
+    Resultado: O status da execução fica como "Error" (vermelho) no painel de execuções.
+
+Quando usar: Quando esse passo é crítico e nada mais deve acontecer se ele falhar (ex: falha ao processar um pagamento).
+
+! B. Continue
+    O que faz: O workflow não pára. O node é marcado como "sucesso" (verde), mas o dado que sai dele (output) conterá a mensagem de erro.
+
+    Resultado: O próximo node receberá um JSON contendo o erro e tentará processá-lo como se fosse um dado normal.
+
+    Perigo: Se o próximo node espera um "email" e recebe um "erro 404", o próximo node vai quebrar. Você precisaria de um node If logo depois para verificar se o dado é válido.
+
+! C. Continue (using error output) (A Melhor Opção para Tratamento Visual)
+    O que faz: Esta opção adiciona fisicamente uma segunda saída (um segundo "pin" ou bolinha) no lado direito do node.
+
+Como funciona:
+
+    Se der certo: O dado sai pela conexão principal (cima/padrão).
+
+    Se der erro: O dado sai pela conexão secundária (baixo/erro).
+
+Vantagem: Permite criar visualmente um caminho de "Plano B" (Fallback) sem precisar escrever códigos complexos. Você conecta a saída de erro diretamente a um node de aviso (Slack/Email) ou a uma API alternativa.
