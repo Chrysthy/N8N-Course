@@ -1,0 +1,29 @@
+? Padrões de resiliência - Retry e Fallback
+
+Implementar resiliência no n8n significa garantir que seu workflow não pare completamente no primeiro erro. Existem duas estratégias principais para isso: Retry (tentar novamente) e Fallback (plano B).
+
+
+* 1. Always Output Data
+
+Garante que o node sempre envie algo para frente, mesmo que o feed RSS não retorne nenhum resultado (esteja vazio). Isso é útil para evitar que o workflow pare por falta de dados. (This node will output an empty item if nothing would normally be returned)
+
+* 2. Retry on Fail
+Permite que um node tente executar sua ação novamente em caso de falha. Você pode configurar o número de tentativas e o intervalo entre elas. Isso é especialmente útil para lidar com erros temporários, como falhas de rede ou limites de taxa (rate limits) de APIs. 
+
+Configure:
+
+    Max Tries: Quantas vezes tentar (ex: 3).
+    Wait Between Tries: Tempo de espera em milissegundos (ex: 5000 para 5 segundos).
+
+Se todas as tentativas falharem, o node pode acionar um fluxo alternativo, como enviar uma notificação ou registrar o erro em um sistema de monitoramento.
+
+* 3. Fallback Node
+On Error oferece três caminhos:
+
+!A. Stop Workflow (Padrão)
+    O que faz: Se o node der erro, o workflow pára imediatamente.
+
+    Resultado: O status da execução fica como "Error" (vermelho) no painel de execuções.
+
+Quando usar: Quando esse passo é crítico e nada mais deve acontecer se ele falhar (ex: falha ao processar um pagamento).
+
