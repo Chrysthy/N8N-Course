@@ -1,0 +1,23 @@
+? Limitar acesso ao Webhook por autenticação
+
+Proteger os Webhooks é fundamental para evitar que qualquer pessoa na internet dispare seus fluxos. No n8n, você tem três camadas principais para limitar esse acesso diretamente no node Webhook.
+
+
+
+* 1. Basic Auth (Usuário e Senha)
+É o método mais clássico. O cliente que chamar o Webhook precisará enviar um cabeçalho Authorization contendo usuário e senha codificados (padrão HTTP).
+
+Como configurar:
+
+    Abra o node Webhook.
+
+    No campo Authentication, selecione Basic Auth.
+
+    Clique em Select Credential e crie uma nova (ou selecione uma existente).
+
+    Defina um User e Password.
+
+Quando usar: Ótimo para testes rápidos no navegador (ele abre um popup pedindo senha) ou sistemas legados simples.
+
+
+
