@@ -1,0 +1,58 @@
+? Criando um chatbot com o Webhook autenticado
+
+Este workflow funciona como uma central de triagem: ele recebe uma mensagem de um usuário, decide qual é o departamento correto com base no conteúdo e envia a resposta específica via API.
+
+* Webhook Tipo: Gatilho (Trigger)
+
+- O que faz: Fica aguardando dados serem enviados para uma URL específica (método POST).
+
+- Neste fluxo: É a porta de entrada. Recebe a mensagem digitada pelo cliente no WhatsApp (via integração externa) e inicia o processo.
+
+Serve para:
+
+- Capturar a interação do usuário em tempo real.
+
+- Trazer os dados necessários (número do telefone, texto da mensagem).
+
+
+* Switch Tipo: Lógica de Decisão (Roteador)
+
+- O que faz: Analisa os dados recebidos e escolhe qual caminho seguir com base em regras pré-definidas.
+
+Neste fluxo: Lê o número que o usuário enviou e ativa a saída correspondente:
+
+    Saída 0: Se for início/menu.
+
+    Saída 1: Se escolheu Financeiro.
+
+    Saída 2: Se escolheu Suporte.
+
+    Saída 3: Se pediu Atendente.
+
+É o "cérebro" que separa os assuntos.
+
+
+* HTTP Request (Menu Inicial, Financeiro, Suporte, Atendente) Tipo: Ação de API
+
+- O que faz: Faz uma requisição para um serviço externo (UzApi) para executar uma ação.
+
+Neste fluxo: Cada um desses 4 nós envia a resposta de texto específica de volta para o usuário:
+
+    Menu Inicial: Envia as opções disponíveis.
+
+    Financeiro: Envia boletos ou status de pagamento.
+
+    Suporte: Envia instruções de ajuda.
+
+    Atendente: Avisa que um humano vai entrar no chat.
+
+É o resultado final que o cliente vê no celular.
+
+
+🧠 Visão geral do fluxo
+
+- Recebe mensagem via Webhook
+- Classifica a intenção no Switch
+- Separa o fluxo por departamento
+- Envia a resposta correspondente via API
+
