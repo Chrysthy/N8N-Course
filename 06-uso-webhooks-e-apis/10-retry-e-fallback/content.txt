@@ -17,13 +17,3 @@ Configure:
 
 Se todas as tentativas falharem, o node pode acionar um fluxo alternativo, como enviar uma notificação ou registrar o erro em um sistema de monitoramento.
 
-* 3. Fallback Node
-On Error oferece três caminhos:
-
-!A. Stop Workflow (Padrão)
-    O que faz: Se o node der erro, o workflow pára imediatamente.
-
-    Resultado: O status da execução fica como "Error" (vermelho) no painel de execuções.
-
-Quando usar: Quando esse passo é crítico e nada mais deve acontecer se ele falhar (ex: falha ao processar um pagamento).
-
